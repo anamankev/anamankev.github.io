@@ -408,7 +408,9 @@ svg.thumb .acc { fill: var(--accent); }
 /* about */
 .about-intro { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr); gap: 48px; align-items: center; }
 .about-intro > * { min-width: 0; }
-.about-intro p { font-size: 1.12rem; color: var(--ink-2); margin: 0 0 14px; max-width: 38rem; }
+.about-intro p { font-size: 1.08rem; color: var(--ink-2); margin: 0 0 14px; max-width: 38rem; }
+.about-intro .about-lead { font-size: clamp(1.3rem, 2vw, 1.55rem); line-height: 1.4; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 18px; }
+.now-list { display: grid; gap: 14px; }
 .route-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.85rem; color: var(--ink-2); margin-top: 18px; }
 .route-line .flag { display: inline-grid; grid-template-rows: 1fr 1fr 1fr; width: 22px; height: 15px; border-radius: 2px; overflow: hidden; position: relative; flex: none; }
 .route-line .flag i:nth-child(1) { background: #ce1126; } .route-line .flag i:nth-child(2) { background: #fcd116; } .route-line .flag i:nth-child(3) { background: #006b3f; }
@@ -775,8 +777,9 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       <section class="section" style="padding-top:28px">
         <div class="about-intro">
           <div>
-            <p>I’m from Ghana and I live in Boston, where I study quantitative economics, mathematics and computer science at Brandeis as a Wien Scholar.</p>
-            <p>Most of my time goes into building things: machine learning models, software systems, and <a href="https://pulseenergies.com" style="color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px">Pulse Energies</a>. I also love working with startup founders, building alongside them and advising them where I can.</p>
+            <p class="about-lead">I grew up in Ghana and now live in Boston, where I study quantitative economics, mathematics and computer science at Brandeis as a Wien Scholar.</p>
+            <p>I learn a system by building it myself. I wrote a vector index from the HNSW paper and a matching engine from an empty file, then tested each one against the tools professionals use. Now I’m building <a href="#kestrel" style="color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px">Kestrel</a>, a market terminal for students, and running <a href="https://pulseenergies.com" style="color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px">Pulse Energies</a>, the grid-forecasting company I founded.</p>
+            <p>A fun fact: some of my favourite work is with other people’s startups. I build alongside founders and advise them where I can, so if you’re starting something, I’d like to hear about it.</p>
             <div class="route-line" aria-label="From Ghana to Boston"><span class="flag" aria-hidden="true"><i></i><i></i><i></i><b>★</b></span><span>Ghana</span><span class="dash"></span><span>Boston</span></div>
           </div>
           <figure class="portrait"><img src="me.jpg" width="336" height="336" alt="Kelvin Anaman"></figure>
@@ -786,11 +789,20 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       <section class="section" style="padding-top:0">
         <p class="kicker">Now</p>
         <h2 style="margin-bottom:18px">What I’m working on</h2>
-        <div class="now">
-          <div class="when">November 2026</div>
-          <div>
-            <h3><a href="#kestrel" style="text-decoration:none">Building Kestrel</a></h3>
-            <p>A Bloomberg-style market terminal designed for students, on iPad and Mac. Type a ticker and a function, press GO, and get live order books, options greeks, fundamentals and paper trading, all from free data.</p>
+        <div class="now-list">
+          <div class="now">
+            <div class="when">Kestrel</div>
+            <div>
+              <h3><a href="#kestrel" style="text-decoration:none">A market terminal for students</a></h3>
+              <p>A Bloomberg-style terminal for iPad and Mac. Type a ticker and a function, press GO, and get live order books, options greeks, fundamentals and paper trading, all from free data.</p>
+            </div>
+          </div>
+          <div class="now">
+            <div class="when">Pulse Energies</div>
+            <div>
+              <h3><a href="https://pulseenergies.com" style="text-decoration:none">PulseOpen, with a 10-person team</a></h3>
+              <p>An open-source Gymnasium environment for training reinforcement-learning agents on power grids, next to the company’s 24-hour grid-load forecasts.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -800,11 +812,11 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         <h2 style="margin-bottom:18px">A few things I love</h2>
         <div class="loves">
           <div class="love"><div class="k">Sports</div><div class="v">Big sports fan</div></div>
-          <div class="love"><div class="k">Music</div><div class="v">Afrobeat and Gospel</div></div>
-          <div class="love"><div class="k">Food</div><div class="v">Ghana Jollof</div><p>Arguably the best jollof rice.</p></div>
-          <div class="love"><div class="k">Screen</div><div class="v">Movies over books</div><p>I’ll pick a film every time.</p></div>
-          <div class="love"><div class="k">Games</div><div class="v">Chess and poker</div><p>One with perfect information, one without.</p></div>
-          <div class="love"><div class="k">Travel</div><div class="v">Qatar, the UK, 10 US states</div><p>So far. I travel a lot.</p></div>
+          <div class="love"><div class="k">Music</div><div class="v">Afrobeat and gospel</div></div>
+          <div class="love"><div class="k">Food</div><div class="v">Ghana jollof</div><p>Arguably the best jollof rice, and I will argue it.</p></div>
+          <div class="love"><div class="k">Screen</div><div class="v">Movies over books</div><p>Given the choice, a film wins.</p></div>
+          <div class="love"><div class="k">Games</div><div class="v">Chess and poker</div><p>One game of perfect information, one of hidden information.</p></div>
+          <div class="love"><div class="k">Travel</div><div class="v">Qatar, the UK, 10 US states</div><p>Visited for fun, and the list is growing.</p></div>
         </div>
       </section>
 
@@ -816,7 +828,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
 
       <section class="section" style="padding-top:0">
         <div class="band">
-          <div><h2>Say hello</h2><p>Founders, recruiters, fellow builders: my inbox is open. For my résumé, send me an email.</p></div>
+          <div><h2>Say hello</h2><p>Founders, recruiters and other builders: email me, and I’ll send my résumé on request.</p></div>
           <a class="btn primary" href="mailto:kanaman@brandeis.edu">Email me</a>
         </div>
       </section>
