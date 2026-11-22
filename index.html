@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-ju7eRb6i7fn0OnTe4KT9ya0GOSRbPdxGnq6UrtO7bsA=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-I/4P+WhWN+Vzwo5oie+eiNZYQXxkWzJxmoQCEQU1NgA=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
@@ -158,7 +158,7 @@ h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 600; line-height: 1.1
 .lede { font-size: 1.15rem; color: var(--ink-2); max-width: 40rem; margin: 0 0 24px; }
 .lede a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .portrait { justify-self: end; width: 100%; max-width: 300px; margin: 0; }
-.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 336 / 334; object-fit: cover; border-radius: 16px; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; }
 
 /* focus areas */
 .areas-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 8px; }
@@ -464,7 +464,7 @@ svg.thumb .acc { fill: var(--accent); }
     radial-gradient(36% 34% at 92% 8%, var(--amb-2), transparent 70%),
     radial-gradient(40% 40% at 78% 70%, var(--amb-1), transparent 72%),
     radial-gradient(34% 34% at 18% 82%, var(--amb-3), transparent 70%); }
-.area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now,
+.area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
 .gallery figure, .pal, .status, .seg, .cmdline, .contact-card {
   background: var(--g1); border: 1px solid var(--glass-edge); border-radius: var(--r-lg);
   box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-1);
@@ -498,14 +498,38 @@ a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .lo
 .ed-main h3, .ed-main p, .ed-main .meta { padding-inline: 10px; }
 .ed-main .meta { margin-top: 6px; }
 .case-media { border-radius: var(--r-lg); box-shadow: var(--sh-1); }
+/* impact: headline figures, then the record of papers, talks and awards */
+.figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 14px; }
+.fig { padding: 22px 24px 20px; }
+.fig b { display: block; font-size: clamp(2.1rem, 3.6vw, 3rem); font-weight: 600; line-height: 1; letter-spacing: -0.04em; }
+.fig b sup { font-size: 0.42em; font-weight: 500; letter-spacing: 0; vertical-align: 0.95em; margin-left: 2px; color: var(--ink-3); }
+.fig span { display: block; margin-top: 12px; font-weight: 600; }
+.fig em { display: block; margin-top: 3px; font-style: normal; font-size: 0.86rem; color: var(--ink-3); }
+.record { list-style: none; margin: 0; padding: 4px 0; }
+.record li { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) auto; gap: 8px 22px; align-items: baseline; padding: 18px 24px; }
+.record li + li { border-top: 1px solid var(--glass-edge); }
+.record .kinds { display: flex; flex-wrap: wrap; gap: 5px; }
+.kind { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.kind.award { color: var(--ink-2); background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.record h3 { margin: 0; font-size: 1rem; line-height: 1.35; }
+.record h3 a { color: inherit; text-decoration: none; }
+.record h3 a:hover { color: var(--accent); }
+.record p { margin: 4px 0 0; font-size: 0.92rem; color: var(--ink-2); }
+.record time { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); white-space: nowrap; }
+@media (max-width: 860px) { .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .record li { grid-template-columns: minmax(0, 1fr) auto; padding: 16px 18px; }
+  .record li > div:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+  .fig { padding: 18px; }
+}
 .gallery figure { overflow: hidden; }
 @media (prefers-reduced-transparency: reduce) {
-  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now,
+  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
   .gallery figure, .pal, .status, .seg, .cmdline { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
   .ambient { display: none; }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now,
+  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
   .gallery figure, .pal, .status, .seg, .cmdline { background: var(--surface); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -615,7 +639,16 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
           </div>
           <p class="live" id="live" hidden><i></i><span id="live-text"></span></p>
         </div>
-        <figure class="portrait"><img src="me.jpg" width="336" height="334" alt="Kelvin Anaman"></figure>
+        <figure class="portrait"><img src="me.jpg" width="336" height="336" alt="Kelvin Anaman"></figure>
+      </section>
+
+      <section class="section" id="impact" aria-labelledby="impact-t">
+        <div class="head-row">
+          <div><p class="kicker">Impact</p><h2 id="impact-t">Published, presented and recognized</h2></div>
+          <a class="more" href="#writing">Read the papers →</a>
+        </div>
+        <div class="figs" id="figs"></div>
+        <ol class="record" id="record"></ol>
       </section>
 
       <section class="section">
@@ -746,7 +779,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
             <p>Most of my time goes into building things: machine learning models, software systems, and <a href="https://pulseenergies.com" style="color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px">Pulse Energies</a>. I also love working with startup founders, building alongside them and advising them where I can.</p>
             <div class="route-line" aria-label="From Ghana to Boston"><span class="flag" aria-hidden="true"><i></i><i></i><i></i><b>★</b></span><span>Ghana</span><span class="dash"></span><span>Boston</span></div>
           </div>
-          <figure class="portrait"><img src="me.jpg" width="336" height="334" alt="Kelvin Anaman"></figure>
+          <figure class="portrait"><img src="me.jpg" width="336" height="336" alt="Kelvin Anaman"></figure>
         </div>
       </section>
 
@@ -826,7 +859,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     <div><h4>Pages</h4><ul><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#writing">Writing</a></li><li><a href="#about">About</a></li><li><a href="#colophon">How this site is built</a></li></ul></div>
     <div><h4>Projects</h4><ul><li><a href="#brier">brier</a></li><li><a href="#hnsw-engine">hnsw-engine</a></li><li><a href="#options-pricing-engine">options-pricing-engine</a></li><li><a href="#kestrel">kestrel</a></li><li><a href="#two-stage-recsys">two-stage-recsys</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:kanaman@brandeis.edu">kanaman@brandeis.edu</a></li><li><a href="https://github.com/anamankev">GitHub</a></li><li><a href="https://www.linkedin.com/in/kelvin-anaman">LinkedIn</a></li></ul></div>
-    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">44 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
+    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">45 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
   </div>
 </footer>
 
@@ -1136,6 +1169,48 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       dek: "XGBoost, constrained to conserve mass, predicts syngas, bio-oil and biochar yields across 75 feedstocks (R\xB2 0.78, 0.76, 0.59) and finds bio-oil peaking near 526 \xB0C. With Sanjith Balamurali."
     }
   ];
+  var PYRO = "https://sciforum.net/paper/view/30748", SSRN = "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5403335";
+  var FIGS = [
+    { n: "2", label: "Papers published", note: "MDPI conference proceedings and SSRN" },
+    { n: "2", label: "Conferences presented at", note: "IOCEN 2026 and ASME ES2026" },
+    { n: "1", sup: "st", label: "Award at IFoRE", note: "Society for Science, physics and engineering" },
+    { n: "23", sup: "rd", label: "Of 12,000+ on Codeforces", note: "Educational Round, competitive programming" }
+  ];
+  var RECORD = [
+    {
+      kinds: ["Paper", "Talk"],
+      title: "AI-Optimized Pyrolysis: A Machine Learning Framework for Predictive Waste-to-Energy Conversion",
+      href: PYRO,
+      where: "First author, with Sanjith Balamurali. Published in the Proceedings of the 3rd International Online Conference on Energies (IOCEN 2026, MDPI) and presented in its session on AI applications to energy conversion systems, 12\u201315 May.",
+      when: "May 2026"
+    },
+    {
+      kinds: ["Talk"],
+      title: "AI-Optimized Pyrolysis, at ASME ES2026",
+      href: PYRO,
+      where: "The same model presented at the American Society of Mechanical Engineers\u2019 Energy Sustainability conference.",
+      when: "2026"
+    },
+    {
+      kinds: ["Paper"],
+      title: "Machine Learning for Vector Boson Polarization Discrimination in High-Energy Physics",
+      href: SSRN,
+      where: "SSRN preprint, 19 pages, DOI 10.2139/ssrn.5403335. Lumiere Research Program, supervised by Dr. Gaetano Barone of Brown University.",
+      when: "Sep 2025"
+    },
+    { kinds: ["Award"], title: "Emerging Scholar Award", href: SSRN, where: "SSRN, for the vector boson polarization paper.", when: "" },
+    { kinds: ["Award"], title: "Medalist, first award in physics and engineering interdisciplinary research", where: "International Forum on Research Excellence (IFoRE), Society for Science.", when: "" },
+    { kinds: ["Award"], title: "Wien Scholar", href: "https://www.brandeis.edu/isso/programs/wien/index.html", where: "Brandeis University\u2019s scholarship for international students, running since 1958.", when: "" }
+  ];
+  $("#figs").innerHTML = FIGS.map(function(f) {
+    return '<div class="fig"><b>' + f.n + (f.sup ? "<sup>" + f.sup + "</sup>" : "") + "</b><span>" + f.label + "</span><em>" + f.note + "</em></div>";
+  }).join("");
+  $("#record").innerHTML = RECORD.map(function(r) {
+    var t = r.href ? '<a href="' + r.href + '">' + r.title + "</a>" : r.title;
+    return '<li><div class="kinds">' + r.kinds.map(function(k) {
+      return '<span class="kind' + (k === "Award" ? " award" : "") + '">' + k + "</span>";
+    }).join("") + "</div><div><h3>" + t + "</h3><p>" + r.where + "</p></div>" + (r.when ? "<time>" + r.when + "</time>" : "<span></span>") + "</li>";
+  }).join("");
   var postById = {};
   POSTS.forEach(function(x) {
     postById[x.id] = x;
