@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-I/4P+WhWN+Vzwo5oie+eiNZYQXxkWzJxmoQCEQU1NgA=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-d2p2IlXwW17xLzRSOTi1ckuJCfrgSMsrvOv2Uf2FQqo=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
@@ -690,7 +690,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       <div class="page-head">
         <p class="kicker">My path so far</p>
         <h1>Experience</h1>
-        <p>Internships, research and the company I started.</p>
+        <p>Internships, research, the companies I started, and the communities I serve.</p>
       </div>
       <section class="section">
         <p class="kicker">Education</p>
@@ -710,10 +710,12 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         <div class="seg" role="tablist" aria-label="Kind of role">
           <button type="button" role="tab" aria-selected="true" data-tab="work" id="tab-work">Work</button>
           <button type="button" role="tab" aria-selected="false" data-tab="research" id="tab-research">Research</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="leadership" id="tab-leadership">Leadership</button>
           <button type="button" role="tab" aria-selected="false" data-tab="awards" id="tab-awards">Awards</button>
         </div>
         <div class="cards" data-xp="work" role="tabpanel"></div>
         <div class="cards" data-xp="research" role="tabpanel" hidden></div>
+        <div class="cards" data-xp="leadership" role="tabpanel" hidden></div>
         <div class="cards" data-xp="awards" role="tabpanel" hidden></div>
       </section>
       <section class="section" style="padding-top:0">
@@ -871,7 +873,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     <div><h4>Pages</h4><ul><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#writing">Writing</a></li><li><a href="#about">About</a></li><li><a href="#colophon">How this site is built</a></li></ul></div>
     <div><h4>Projects</h4><ul><li><a href="#brier">brier</a></li><li><a href="#hnsw-engine">hnsw-engine</a></li><li><a href="#options-pricing-engine">options-pricing-engine</a></li><li><a href="#kestrel">kestrel</a></li><li><a href="#two-stage-recsys">two-stage-recsys</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:kanaman@brandeis.edu">kanaman@brandeis.edu</a></li><li><a href="https://github.com/anamankev">GitHub</a></li><li><a href="https://www.linkedin.com/in/kelvin-anaman">LinkedIn</a></li></ul></div>
-    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">45 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
+    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">46 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
   </div>
 </footer>
 
@@ -910,9 +912,12 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         org: "Pulse Energies",
         when: "2025 \u2013 now",
         hi: "Grid-load forecasting with physical limits enforced on every forecast.",
-        bullets: ["An XGBoost/LSTM pipeline that forecasts 24-hour grid load from 15-minute data, with capacity and ramp-rate limits enforced on every forecast.", "Leading a 10-person team building PulseOpen, an open-source Gymnasium environment for reinforcement learning on power grids."]
+        bullets: ["An XGBoost/LSTM pipeline that forecasts 24-hour grid load from 15-minute data, with capacity and ramp-rate limits enforced on every forecast.", "Leading a 10-person team building PulseOpen, an open-source Gymnasium environment for reinforcement learning on power grids.", "Run Pulse\u2019s summer internship program (2026 cohort) and recruit students nationwide for its National Energy Research Team, which studies how data centers plan and source their electricity."]
       },
+      { logo: "brandeis", role: "Quantitative Researcher", org: "Brandeis University \xB7 part-time", when: "2026 \u2013 now", bullets: [] },
+      { mono: "NX", color: "#3b4a8c", role: "Co-Founder", org: "Nexora", when: "2026 \u2013 now \xB7 on leave", bullets: [] },
       { logo: "hubtel", bleed: true, role: "Technical Product Manager Intern", org: "Hubtel", when: "2026", hi: "Product work on Hubtel\u2019s merchant payments.", bullets: ["Product work on Hubtel\u2019s merchant payments in Ghana."] },
+      { logo: "brandeis", role: "Mobile App Developer", org: "Branda \xB7 Brandeis\u2019s student app", when: "2026 \u2013 now", bullets: [] },
       {
         logo: "ipmc",
         bleed: true,
@@ -941,7 +946,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         logo: "lumiere",
         role: "Machine Learning Researcher",
         org: "Lumiere Research Program",
-        when: "2025",
+        when: "May \u2013 Dec 2025",
         bullets: [
           '<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5403335">Machine Learning for Vector Boson Polarization Discrimination in High-Energy Physics</a>. SSRN preprint, 19 pages, September 2025 (DOI 10.2139/ssrn.5403335). Supervised by Dr. Gaetano Barone of Brown University.',
           "Classifies longitudinal against transverse polarization of W and Z bosons in vector boson scattering at the LHC, focusing on WZ production, by combining scattering-amplitude calculations with PyTorch neural networks.",
@@ -949,11 +954,19 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         ]
       }
     ],
+    leadership: [
+      { mono: "CS", color: "#1f6f5c", role: "Fellow", org: "ColorStack", when: "2026 \u2013 now", bullets: ["A national fellowship and community that works to increase the number of Black and Latinx computer science graduates."] },
+      { mono: "RCS", color: "#6b2d5c", role: "Judge, QCEC 2026", org: "Royal Commonwealth Society \xB7 London, remote", when: "2025 \u2013 2026", bullets: ["Judged entries for the Queen\u2019s Commonwealth Essay Competition, the society\u2019s international writing competition for young people across the Commonwealth."] },
+      { logo: "brandeis", role: "Math Tutor, Upward Bound", org: "Brandeis University", when: "2026 \u2013 now", bullets: ["Tutor math for Upward Bound, the federal TRIO program that prepares first-generation and low-income high-school students for college."] },
+      { logo: "brandeis", role: "Peer Counselor", org: "Student Financial Services \xB7 Brandeis University", when: "2026 \u2013 now", bullets: ["Help students work through financial aid, billing and payment questions."] },
+      { mono: "DofE", color: "#8a6d1d", role: "Gold and Silver Award", org: "The Duke of Edinburgh\u2019s International Award", when: "2023 \u2013 2024", bullets: ["Completed the Silver and Gold levels: volunteering, a physical activity, a skill and an expedition, with service focused on the environment."] }
+    ],
     awards: [
       { logo: "brandeis", role: "Wien Scholar", org: "Brandeis University", when: "", bullets: ['Chosen for <a href="https://www.brandeis.edu/isso/programs/wien/index.html">Brandeis\u2019s Wien Scholarship Program</a>, founded in 1958, which has brought more than 894 scholars from 115 countries to Brandeis.'] },
       { logo: "codeforces", role: "23rd of 12,000+", org: "Educational Codeforces Round", when: "", bullets: [] },
       { logo: "maa", role: "Two-time top scorer, AIME qualifier", org: "American Mathematics Competitions", when: "", bullets: [] },
       { logo: "sfs", bleed: true, role: "Medalist, first award in physics and engineering interdisciplinary research", org: "IFoRE \xB7 Society for Science", when: "", bullets: [] },
+      { mono: "DofE", color: "#8a6d1d", role: "Gold and Silver Award", org: "The Duke of Edinburgh\u2019s International Award", when: "2023 \u2013 2024", bullets: [] },
       { logo: "ssrn", bleed: true, role: "Emerging Scholar Award", org: "SSRN", when: "", bullets: ['<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5403335">Read the paper on SSRN</a>'] }
     ]
   };
@@ -1210,8 +1223,10 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       where: "SSRN preprint, 19 pages, DOI 10.2139/ssrn.5403335. Lumiere Research Program, supervised by Dr. Gaetano Barone of Brown University.",
       when: "Sep 2025"
     },
+    { kinds: ["Judge"], title: "Judge, Queen\u2019s Commonwealth Essay Competition 2026", where: "Royal Commonwealth Society, London (remote).", when: "2026" },
     { kinds: ["Award"], title: "Emerging Scholar Award", href: SSRN, where: "SSRN, for the vector boson polarization paper.", when: "" },
     { kinds: ["Award"], title: "Medalist, first award in physics and engineering interdisciplinary research", where: "International Forum on Research Excellence (IFoRE), Society for Science.", when: "" },
+    { kinds: ["Award"], title: "Gold and Silver Award", where: "The Duke of Edinburgh\u2019s International Award, 2023\u20132024.", when: "2024" },
     { kinds: ["Award"], title: "Wien Scholar", href: "https://www.brandeis.edu/isso/programs/wien/index.html", where: "Brandeis University\u2019s scholarship for international students, running since 1958.", when: "" }
   ];
   $("#figs").innerHTML = FIGS.map(function(f) {
@@ -1220,7 +1235,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
   $("#record").innerHTML = RECORD.map(function(r) {
     var t = r.href ? '<a href="' + r.href + '">' + r.title + "</a>" : r.title;
     return '<li><div class="kinds">' + r.kinds.map(function(k) {
-      return '<span class="kind' + (k === "Award" ? " award" : "") + '">' + k + "</span>";
+      return '<span class="kind' + (k === "Award" || k === "Judge" ? " award" : "") + '">' + k + "</span>";
     }).join("") + "</div><div><h3>" + t + "</h3><p>" + r.where + "</p></div>" + (r.when ? "<time>" + r.when + "</time>" : "<span></span>") + "</li>";
   }).join("");
   var postById = {};
@@ -1287,10 +1302,14 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       return '<span class="tag">' + t + "</span>";
     }).join("") + '</div><span class="read">Read the write-up \u2192</span></div></article>';
   }
-  $('[data-xp="highlights"]').innerHTML = [XP.work[0], XP.work[1], XP.work[3]].map(function(x) {
+  $('[data-xp="highlights"]').innerHTML = ["bog", "pulse", "ipmc"].map(function(l) {
+    return XP.work.filter(function(x) {
+      return x.logo === l;
+    })[0];
+  }).map(function(x) {
     return xcard(x, true);
   }).join("");
-  ["work", "research", "awards"].forEach(function(k) {
+  ["work", "research", "leadership", "awards"].forEach(function(k) {
     $('[data-xp="' + k + '"]').innerHTML = XP[k].map(function(x) {
       return xcard(x, false);
     }).join("");
@@ -1357,7 +1376,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       tabs.forEach(function(o) {
         o.setAttribute("aria-selected", o === b ? "true" : "false");
       });
-      ["work", "research", "awards"].forEach(function(k) {
+      ["work", "research", "leadership", "awards"].forEach(function(k) {
         $('[data-xp="' + k + '"]').hidden = k !== b.getAttribute("data-tab");
       });
     });
