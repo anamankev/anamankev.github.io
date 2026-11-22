@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-0laOH0ixmDeD7HvvyNG5aSaRoXQE75ykXUAwnyNBEhI='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-/P5V4dp62ztceQB6ZJY1Oq8wTVDXiLjE/LZpgr2MsYw='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
@@ -1404,7 +1404,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     try { var cached = JSON.parse(sessionStorage.getItem("live") || "null"); if (cached && Date.now() - cached.t < 600000) { show(cached.c); return; } } catch (e) {}
     if (!window.fetch) return;
     fetch("https://api.github.com/users/anamankev/events/public?per_page=30").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (ev) {
-      var push = ev.filter(function (e) { return e.type === "PushEvent"; })[0]; if (!push) throw 0;
+      var push = ev.filter(function (e) { return e.type === "PushEvent" && e.repo.name !== "anamankev/anamankev.github.io"; })[0]; if (!push) throw 0;
       return fetch("https://api.github.com/repos/" + push.repo.name + "/commits?per_page=1").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (cs) {
         var c = cs[0]; var o = { repo: push.repo.name.split("/")[1], msg: c.commit.message.split("\n")[0].slice(0, 90), date: c.commit.author.date, url: c.html_url };
         try { sessionStorage.setItem("live", JSON.stringify({ t: Date.now(), c: o })); } catch (e) {}
