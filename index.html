@@ -46,6 +46,18 @@
   --band-ink: #faf9f5;
   --band-ink-2: #a09d96;
   --glass: rgba(255, 255, 255, 0.55);
+  /* surface system: g1 = cards on the page, g2 = raised (hover, dialogs, inner wells) */
+  --g1: rgba(255, 255, 255, 0.6);
+  --g2: rgba(255, 255, 255, 0.8);
+  --g-well: rgba(255, 255, 255, 0.5);
+  --g-blur: 16px;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --r-xl: 24px;
+  --sh-1: 0 1px 2px rgba(20, 20, 19, 0.04), 0 10px 30px -8px rgba(20, 20, 19, 0.10);
+  --sh-2: 0 2px 4px rgba(20, 20, 19, 0.05), 0 18px 44px -10px rgba(20, 20, 19, 0.16);
+  --amb-1: rgba(29, 107, 98, 0.16);
+  --amb-2: rgba(232, 165, 90, 0.16);
+  --amb-3: rgba(120, 140, 230, 0.10);
+  --ease: cubic-bezier(.2, .7, .2, 1);
   --glass-strong: rgba(255, 255, 255, 0.82);
   --glass-edge: rgba(20, 20, 19, 0.08);
   --glass-hi: rgba(255, 255, 255, 0.9);
@@ -57,13 +69,13 @@
   :root:not([data-theme="light"]) {
     --bg: #181715; --surface: #1f1e1b; --surface-2: #2a2824; --ink: #faf9f5; --ink-2: #cfcbc2; --ink-3: #a09d96;
     --line: #34312c; --accent: #6cc4b3; --accent-ink: #10201d; --accent-soft: #1f3530; --buy: #5cc98f; --sell: #e8875a; --scrim: rgba(0, 0, 0, 0.6);
-    --band: #0f0e0d; --band-2: #1f1e1b; --glass: rgba(255, 255, 255, 0.06); --glass-strong: rgba(255, 255, 255, 0.14); --glass-edge: rgba(255, 255, 255, 0.12); --glass-hi: rgba(255, 255, 255, 0.16); --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35); color-scheme: dark;
+    --band: #0f0e0d; --band-2: #1f1e1b; --glass: rgba(255, 255, 255, 0.06); --glass-strong: rgba(255, 255, 255, 0.14); --glass-edge: rgba(255, 255, 255, 0.12); --glass-hi: rgba(255, 255, 255, 0.16); --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35); --g1: rgba(38, 36, 32, 0.55); --g2: rgba(52, 49, 44, 0.72); --g-well: rgba(255, 255, 255, 0.04); --sh-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 32px -8px rgba(0, 0, 0, 0.5); --sh-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 20px 48px -10px rgba(0, 0, 0, 0.6); --amb-1: rgba(108, 196, 179, 0.13); --amb-2: rgba(232, 135, 90, 0.10); --amb-3: rgba(120, 140, 230, 0.10); color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #181715; --surface: #1f1e1b; --surface-2: #2a2824; --ink: #faf9f5; --ink-2: #cfcbc2; --ink-3: #a09d96;
   --line: #34312c; --accent: #6cc4b3; --accent-ink: #10201d; --accent-soft: #1f3530; --buy: #5cc98f; --sell: #e8875a; --scrim: rgba(0, 0, 0, 0.6);
-  --band: #0f0e0d; --band-2: #1f1e1b; --glass: rgba(255, 255, 255, 0.06); --glass-strong: rgba(255, 255, 255, 0.14); --glass-edge: rgba(255, 255, 255, 0.12); --glass-hi: rgba(255, 255, 255, 0.16); --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35); color-scheme: dark;
+  --band: #0f0e0d; --band-2: #1f1e1b; --glass: rgba(255, 255, 255, 0.06); --glass-strong: rgba(255, 255, 255, 0.14); --glass-edge: rgba(255, 255, 255, 0.12); --glass-hi: rgba(255, 255, 255, 0.16); --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35); --g1: rgba(38, 36, 32, 0.55); --g2: rgba(52, 49, 44, 0.72); --g-well: rgba(255, 255, 255, 0.04); --sh-1: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 32px -8px rgba(0, 0, 0, 0.5); --sh-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 20px 48px -10px rgba(0, 0, 0, 0.6); --amb-1: rgba(108, 196, 179, 0.13); --amb-2: rgba(232, 135, 90, 0.10); --amb-3: rgba(120, 140, 230, 0.10); color-scheme: dark;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -442,6 +454,64 @@ svg.thumb .acc { fill: var(--accent); }
 :root.term { --sans: "IBM Plex Mono", ui-monospace, Menlo, monospace; --bg: #0b0f12; --surface: #10161b; --surface-2: #162027; --ink: #c9f6ff; --ink-2: #8fc7d3; --ink-3: #55808b; --line: #1d2b33; --accent: #4fd1e8; --accent-ink: #062027; --accent-soft: #0f2d36; color-scheme: dark; }
 :root.term h1, :root.term h2, :root.term h3 { letter-spacing: 0; }
 
+/* ===================== glass surface system =====================
+   One recipe for every card-like surface. Glass needs something to blur, so a fixed
+   ambient layer of soft brand-coloured light sits behind the page. Long-form reading
+   (post bodies), the dark feature band and the footer stay solid on purpose. */
+.ambient { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(42% 38% at 8% 12%, var(--amb-1), transparent 70%),
+    radial-gradient(36% 34% at 92% 8%, var(--amb-2), transparent 70%),
+    radial-gradient(40% 40% at 78% 70%, var(--amb-1), transparent 72%),
+    radial-gradient(34% 34% at 18% 82%, var(--amb-3), transparent 70%); }
+.area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now,
+.gallery figure, .pal, .status, .seg, .cmdline, .contact-card {
+  background: var(--g1); border: 1px solid var(--glass-edge); border-radius: var(--r-lg);
+  box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-1);
+  -webkit-backdrop-filter: blur(var(--g-blur)) saturate(160%); backdrop-filter: blur(var(--g-blur)) saturate(160%); }
+.status, .seg, .cmdline { border-radius: 999px; }
+.cmdline { border-radius: var(--r-md); }
+.area, .xcard, .edu, .pcard, .ed-item, .post-row, .love {
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease); }
+a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .love:hover {
+  transform: translateY(-3px); background: var(--g2); box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-2); }
+.pal { background: var(--g2); box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-2); }
+.out, .field input, .tape, .suggest button { background: var(--g-well); }
+.tag, .meta .dots { background: color-mix(in srgb, var(--surface-2) 70%, transparent); }
+.toast { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); background: color-mix(in srgb, var(--ink) 86%, transparent); }
+::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+
+/* shapes and spacing that glass cards need (lists become cards) */
+.areas { padding: 6px 2px 14px; }
+.area { border-top: 1px solid var(--glass-edge); padding: 24px; }
+.cards { gap: 14px; }
+.xcard, .edu { border-top: 1px solid var(--glass-edge); padding: 22px 24px; }
+.pcard { padding: 12px; }
+.pcard .shot { border-radius: var(--r-md); }
+.pbody { padding: 18px 8px 8px; }
+.ed-col { gap: 18px; }
+.ed-item { padding: 22px; }
+.ed-item + .ed-item { border-top: 1px solid var(--glass-edge); padding-top: 22px; }
+.ed-item .img { border-radius: var(--r-md); }
+.ed-main { padding: 14px 14px 26px; }
+.ed-main .img { margin-bottom: 22px; }
+.ed-main h3, .ed-main p, .ed-main .meta { padding-inline: 10px; }
+.ed-main .meta { margin-top: 6px; }
+.case-media { border-radius: var(--r-lg); box-shadow: var(--sh-1); }
+.gallery figure { overflow: hidden; }
+@media (prefers-reduced-transparency: reduce) {
+  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now,
+  .gallery figure, .pal, .status, .seg, .cmdline { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .ambient { display: none; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now,
+  .gallery figure, .pal, .status, .seg, .cmdline { background: var(--surface); }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .love:hover { transform: none; }
+}
+
 /* résumé (print only) */
 #cv { display: none; }
 @media print {
@@ -479,6 +549,10 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
   .numbers { position: static; }
 }
 @media (max-width: 600px) {
+  .area, .ed-item { padding: 18px; }
+  .xcard, .edu { padding: 18px; }
+  .ed-main { padding: 10px 10px 20px; }
+  .ed-main h3, .ed-main p, .ed-main .meta { padding-inline: 6px; }
   .nav .brand { padding: 3px; }
   .nav .tabs { gap: 4px; }
   .nav .tools { display: none; }
@@ -508,6 +582,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
 </head>
 <body>
 
+<div class="ambient" aria-hidden="true"></div>
 <header class="nav">
   <div class="wrap">
     <nav class="tabs" aria-label="Pages">
@@ -766,7 +841,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     <div><h4>Pages</h4><ul><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#writing">Writing</a></li><li><a href="#about">About</a></li><li><a href="#colophon">How this site is built</a></li></ul></div>
     <div><h4>Projects</h4><ul><li><a href="#brier">brier</a></li><li><a href="#hnsw-engine">hnsw-engine</a></li><li><a href="#options-pricing-engine">options-pricing-engine</a></li><li><a href="#kestrel">kestrel</a></li><li><a href="#two-stage-recsys">two-stage-recsys</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:kanaman@brandeis.edu">kanaman@brandeis.edu</a></li><li><a href="https://github.com/anamankev">GitHub</a></li><li><a href="https://www.linkedin.com/in/kelvin-anaman">LinkedIn</a></li></ul></div>
-    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers, <span id="weight">42 KB</span> gzipped before images.</span></div>
+    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers, <span id="weight">43 KB</span> gzipped before images.</span></div>
   </div>
 </footer>
 
