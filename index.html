@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-d2p2IlXwW17xLzRSOTi1ckuJCfrgSMsrvOv2Uf2FQqo=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eU5MKXB8ugZfMEUm1A4YBEYd27kugST7EcUzoNmsclw=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
@@ -13,12 +13,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kelvin Anaman">
 <meta property="og:title" content="Kelvin Anaman">
-<meta property="og:description" content="Kelvin Anaman builds machine learning and software systems, from vector search to a prediction-market exchange. Brandeis ’30.">
+<meta property="og:description" content="Kelvin Anaman writes software that prices options, learns what you’ll watch next and matches 12.3 million orders a second. Brandeis ’30.">
 <meta property="og:url" content="https://anamankev.github.io/">
 <meta property="og:image" content="https://anamankev.github.io/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Kelvin Anaman: I build machine learning and software systems, from vector search to a prediction-market exchange.">
+<meta property="og:image:alt" content="Kelvin Anaman: I write software that prices options, learns what you’ll watch next and matches 12.3 million orders a second.">
 <meta name="twitter:card" content="summary_large_image">
 <title>Kelvin Anaman</title>
 <meta name="description" content="Kelvin Anaman builds machine learning and software systems: recommenders, vector search, a crash-safe exchange and a trading terminal. Brandeis ’30, founder of Pulse Energies.">
@@ -148,9 +148,47 @@ h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 600; line-height: 1.1
 .band p { margin: 4px 0 0; color: var(--ink-2); }
 
 /* hero */
-.statement { padding-block: 72px 28px; }
-.statement h1 { font-size: clamp(2.2rem, 4.6vw, 4.1rem); font-weight: 600; line-height: 1.04; letter-spacing: -0.035em; max-width: 25ch; }
-.statement h1 span { color: var(--accent); }
+.statement { padding-block: 64px 30px; }
+.statement h1 { font-size: clamp(1.8rem, 3.7vw, 3.4rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.032em; max-width: 30ch; }
+.statement h1 .face { display: inline-block; width: 0.88em; height: 0.88em; border-radius: 50%; object-fit: cover; vertical-align: -0.12em; margin: 0 0.04em; box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--glass-edge); }
+.statement h1 a { color: inherit; text-decoration: none; background: linear-gradient(var(--accent), var(--accent)) 0 94% / 100% 0.06em no-repeat; transition: color .25s var(--ease), background-size .25s var(--ease); }
+.statement h1 a:hover, .statement h1 a.hot, .statement h1 a:focus-visible { color: var(--accent); background-size: 100% 0.11em; }
+.statement h1 sup { position: relative; top: -1.75em; vertical-align: baseline; margin-left: 0.12em; font-family: var(--mono); font-size: 0.3em; font-weight: 500; letter-spacing: 0; color: var(--accent); }
+/* the three live panels under the headline */
+.instruments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.inst { display: grid; grid-template-rows: auto auto auto 1fr; gap: 10px; padding: 16px 18px 14px; min-width: 0; }
+.inst.hot { transform: translateY(-3px); background: var(--g2); box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-2); border-color: color-mix(in srgb, var(--accent) 40%, var(--glass-edge)); }
+.inst header { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.inst .ix { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); }
+.inst h2 { margin: 0; font-size: 1.02rem; font-weight: 600; letter-spacing: -0.01em; }
+.inst .src { margin-left: auto; font-family: var(--mono); font-size: 0.7rem; color: var(--ink-3); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inst .src:hover { color: var(--accent); }
+.inst .viz { display: block; width: 100%; height: auto; aspect-ratio: 360 / 168; border-radius: var(--r-md); background: var(--g-well); border: 1px solid var(--glass-edge); }
+.inst text.tick { font-family: var(--mono); font-size: 9.5px; fill: var(--ink-3); }
+.inst .read { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: 0; min-height: 1.3em; font-family: var(--mono); font-size: 0.74rem; font-variant-numeric: tabular-nums; }
+.inst .read div { display: flex; gap: 6px; }
+.inst .read dt { color: var(--ink-3); }
+.inst .read dd { margin: 0; color: var(--ink); }
+.inst .proof { align-self: end; margin: 0; padding-top: 10px; border-top: 1px solid var(--glass-edge); font-size: 0.84rem; color: var(--ink-2); }
+.inst .proof b { font-family: var(--mono); font-weight: 600; color: var(--ink); }
+.ladder-mini { display: flex; flex-direction: column; justify-content: center; padding: 6px 10px; font-family: var(--mono); font-size: 0.72rem; font-variant-numeric: tabular-nums; overflow: hidden; }
+.ladder-mini .r { position: relative; display: flex; justify-content: space-between; flex: none; padding: 0 6px; height: 1.32em; line-height: 1.32em; }
+.ladder-mini .bar { position: absolute; top: 1px; bottom: 1px; right: 0; border-radius: 3px; opacity: 0.2; transition: width .25s var(--ease); }
+.ladder-mini .ask .bar { background: var(--sell); } .ladder-mini .bid .bar { background: var(--buy); }
+.ladder-mini .ask .px { color: var(--sell); } .ladder-mini .bid .px { color: var(--buy); }
+.ladder-mini .px, .ladder-mini .q { position: relative; }
+.ladder-mini .hit .bar { opacity: 0.55; }
+.ladder-mini .mid { margin: 3px 0; padding: 2px 0; border-block: 1px dashed var(--glass-edge); text-align: center; font-size: 0.68rem; color: var(--ink-3); white-space: nowrap; }
+.inst-note { display: flex; align-items: center; gap: 9px; margin: 14px 2px 40px; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-3); }
+.inst-note i { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--buy); animation: inst-pulse 2.4s ease-in-out infinite; }
+@keyframes inst-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--buy) 45%, transparent); } 50% { box-shadow: 0 0 0 5px transparent; } }
+@media (max-width: 900px) {
+  .instruments { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(360px, 84%); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: -20px; padding: 4px 20px 10px; scroll-padding-inline: 20px; }
+  .instruments .inst { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--g2); }
+  .instruments::-webkit-scrollbar { display: none; }
+  .inst { scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) { .inst-note i { animation: none; } .inst.hot { transform: none; } }
 .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr); gap: 56px; align-items: end; padding-block: 8px 56px; border-bottom: 1px solid var(--line); }
 .hero > * { min-width: 0; }
 .status { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--ink-2); background: var(--surface-2); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
@@ -159,22 +197,6 @@ h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 600; line-height: 1.1
 .lede a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .portrait { justify-self: end; align-self: center; width: 100%; max-width: 300px; margin: 0; }
 .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; }
-
-/* focus areas */
-.areas-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 8px; }
-.areas { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 3 * 22px) / 4); gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
-.areas::-webkit-scrollbar { display: none; }
-.area { scroll-snap-align: start; border-top: 1px solid var(--line); padding-top: 26px; text-decoration: none; min-width: 0; }
-.area .top { display: flex; gap: 14px; align-items: flex-start; }
-.area svg { flex: none; width: 44px; height: 44px; color: var(--ink); }
-.area h3 { font-size: 1.45rem; line-height: 1.15; }
-.area .count { font-size: 0.92rem; color: var(--ink-3); }
-.area p { margin: 14px 0 0; color: var(--ink-2); font-size: 0.97rem; }
-.area:hover h3 { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
-.pager { display: flex; align-items: center; justify-content: center; gap: 28px; margin-top: 30px; font-family: var(--mono); font-size: 0.85rem; color: var(--ink-2); }
-.pager button { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; font: inherit; font-size: 1.05rem; }
-.pager button:hover { border-color: var(--ink); }
-.pager button:disabled { opacity: 0.35; cursor: default; }
 
 /* editorial grid (news layout) */
 .meta { display: flex; align-items: center; gap: 16px; font-size: 0.92rem; color: var(--ink-3); margin-bottom: 14px; }
@@ -432,7 +454,6 @@ svg.thumb .acc { fill: var(--accent); }
 @media (max-width: 1000px) {
   .ed { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .ed-center { grid-column: 1 / -1; order: -1; }
-  .areas { grid-auto-columns: calc((100% - 22px) / 2); }
   .feature { grid-template-columns: minmax(0, 1fr); }
   .feature .txt { padding: 48px max(20px, env(safe-area-inset-left, 0px)); }
   .feature .pic { min-height: 260px; }
@@ -466,16 +487,16 @@ svg.thumb .acc { fill: var(--accent); }
     radial-gradient(36% 34% at 92% 8%, var(--amb-2), transparent 70%),
     radial-gradient(40% 40% at 78% 70%, var(--amb-1), transparent 72%),
     radial-gradient(34% 34% at 18% 82%, var(--amb-3), transparent 70%); }
-.area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
+.inst, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
 .gallery figure, .pal, .status, .seg, .cmdline, .contact-card {
   background: var(--g1); border: 1px solid var(--glass-edge); border-radius: var(--r-lg);
   box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-1);
   -webkit-backdrop-filter: blur(var(--g-blur)) saturate(160%); backdrop-filter: blur(var(--g-blur)) saturate(160%); }
 .status, .seg, .cmdline { border-radius: 999px; }
 .cmdline { border-radius: var(--r-md); }
-.area, .xcard, .edu, .pcard, .ed-item, .post-row, .love {
+.inst, .xcard, .edu, .pcard, .ed-item, .post-row, .love {
   transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease); }
-a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .love:hover {
+.pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .love:hover {
   transform: translateY(-3px); background: var(--g2); box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-2); }
 .pal { background: var(--g2); box-shadow: inset 0 1px 0 var(--glass-hi), var(--sh-2); }
 .out, .field input, .tape, .suggest button { background: var(--g-well); }
@@ -484,8 +505,6 @@ a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .lo
 ::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
 
 /* shapes and spacing that glass cards need (lists become cards) */
-.areas { padding: 6px 2px 14px; }
-.area { border-top: 1px solid var(--glass-edge); padding: 24px; }
 .cards { gap: 14px; }
 .xcard, .edu { border-top: 1px solid var(--glass-edge); padding: 22px 24px; }
 .pcard { padding: 12px; }
@@ -526,16 +545,16 @@ a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .lo
 }
 .gallery figure { overflow: hidden; }
 @media (prefers-reduced-transparency: reduce) {
-  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
+  .inst, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
   .gallery figure, .pal, .status, .seg, .cmdline { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
   .ambient { display: none; }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .area, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
+  .inst, .xcard, .edu, .pcard, .ed-item, .numbers, .demo, .diagram, .band, .post-row, .love, .now, .fig, .record,
   .gallery figure, .pal, .status, .seg, .cmdline { background: var(--surface); }
 }
 @media (prefers-reduced-motion: reduce) {
-  a.area:hover, .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .love:hover { transform: none; }
+  .pcard:hover, a.ed-item:hover, a.post-row:hover, .xcard:hover, .love:hover { transform: none; }
 }
 
 /* print: the page itself, without navigation chrome */
@@ -559,7 +578,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
   .numbers { position: static; }
 }
 @media (max-width: 600px) {
-  .area, .ed-item { padding: 18px; }
+  .ed-item { padding: 18px; }
   .xcard, .edu { padding: 18px; }
   .ed-main { padding: 10px 10px 20px; }
   .ed-main h3, .ed-main p, .ed-main .meta { padding-inline: 6px; }
@@ -569,7 +588,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
   .nav .tabs a { padding: 6px 8px; font-size: 0.76rem; }
   .nav .wrap { gap: 8px; }
   .ed { grid-template-columns: minmax(0, 1fr); }
-  .areas { grid-auto-columns: 86%; }
   .statement { padding-block: 44px 20px; }
   footer .wrap { grid-template-columns: minmax(0, 1fr); }
   .brand { letter-spacing: 0.08em; font-size: 0.95rem; }
@@ -616,12 +634,33 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
   <div class="view" id="v-home">
     <div class="wrap">
       <section class="statement">
-        <h1>I’m Kelvin. I build <span>machine learning</span> and software systems, from vector search to a prediction-market exchange.</h1>
+        <h1>I’m <img class="face" src="me.jpg" width="56" height="56" alt=""> Kelvin. I write software that <a href="#options-pricing-engine" data-inst="price">prices options</a>,<sup aria-hidden="true">01</sup> <a href="#two-stage-recsys" data-inst="learn">learns what you’ll watch next</a><sup aria-hidden="true">02</sup> and <a href="#brier" data-inst="match">matches 12.3 million orders a second</a>.<sup aria-hidden="true">03</sup></h1>
       </section>
+      <section class="instruments" id="instruments" aria-label="Three of my engines, running in this page">
+        <article class="inst" data-inst="price">
+          <header><span class="ix">01</span><h2>Price</h2><a class="src" href="#options-pricing-engine">options-pricing-engine →</a></header>
+          <svg class="viz" id="iv-price" viewBox="0 0 360 168" role="img" aria-label="A call option’s value against the stock price, sinking toward its payoff as expiry nears"></svg>
+          <dl class="read" id="ir-price"></dl>
+          <p class="proof"><b>4e-16</b> median gap to QuantLib, over 1,800 cases</p>
+        </article>
+        <article class="inst" data-inst="learn">
+          <header><span class="ix">02</span><h2>Recommend</h2><a class="src" href="#two-stage-recsys">two-stage-recsys →</a></header>
+          <svg class="viz" id="iv-learn" viewBox="0 0 360 168" role="img" aria-label="A user’s taste moving through an item embedding space, and the HNSW search route to the nearest item"></svg>
+          <dl class="read" id="ir-learn"></dl>
+          <p class="proof"><b>2×</b> the NDCG@10 of tuned ALS: 0.0906 against 0.0445</p>
+        </article>
+        <article class="inst" data-inst="match">
+          <header><span class="ix">03</span><h2>Match</h2><a class="src" href="#brier">brier →</a></header>
+          <div class="viz ladder-mini" id="iv-match" role="img" aria-label="A prediction-market order book, with orders arriving and trading"></div>
+          <dl class="read" id="ir-match"></dl>
+          <p class="proof"><b>0 of 6,058,014</b> acknowledged orders lost across 1,000 crashes</p>
+        </article>
+      </section>
+      <p class="inst-note"><i></i>Running now: my Rust engines, compiled to WebAssembly. The stock, the tastes and the orders are simulated.</p>
       <section class="hero">
         <div>
           <div class="status"><i></i>Brandeis ’30 · Boston · Wien Scholar</div>
-          <p class="lede">I’m from Ghana and study quantitative economics, math and computer science at Brandeis. My vector search engine matches FAISS’s recall within 0.01 and runs 39× faster than exact search on a million vectors. My recommender doubles a tuned ALS baseline, and my Rust exchange handles 12.3 million orders a second and has been killed 1,000 times under load without losing an acknowledged order. I founded <a href="https://pulseenergies.com">Pulse Energies</a>, which forecasts 24-hour grid load, and this summer I priced over $10 billion of gold-for-forex inflows as a quant research intern at the Bank of Ghana.</p>
+          <p class="lede">I’m from Ghana and study quantitative economics, math and computer science at Brandeis. This summer I priced over $10 billion of gold-for-forex inflows at the Bank of Ghana. I also founded <a href="https://pulseenergies.com">Pulse Energies</a>, which forecasts 24-hour grid load, and I build a market terminal for students called <a href="#kestrel">Kestrel</a>.</p>
           <button class="cmdline" type="button" data-open-palette aria-label="Open the command line">
             <span class="prompt">&gt;</span>
             <span class="ph">Type a command, like <b>BRIER</b> or <b>EXP</b><span class="caret"></span></span>
@@ -651,12 +690,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         </div>
         <div class="figs" id="figs"></div>
         <ol class="record" id="record"></ol>
-      </section>
-
-      <section class="section">
-        <div class="areas-head"><div><p class="kicker">What I work on</p></div></div>
-        <div class="areas" id="areas"></div>
-        <div class="pager"><button type="button" id="areas-prev" aria-label="Previous areas">←</button><span id="areas-pos">01 / 04</span><button type="button" id="areas-next" aria-label="Next areas">→</button></div>
       </section>
     </div>
 
@@ -869,11 +902,11 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
 
 <footer>
   <div class="wrap">
-    <div><div class="fname">Kelvin Anaman</div><p style="margin:10px 0 0;max-width:26rem">Machine learning, software engineering and quantitative finance, plus a grid forecasting startup. Brandeis ’30, Boston.</p></div>
+    <div><div class="fname">Kelvin Anaman</div><p style="margin:10px 0 0;max-width:26rem">Software that prices, learns and matches, built from scratch and measured. Brandeis ’30, Boston.</p></div>
     <div><h4>Pages</h4><ul><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#writing">Writing</a></li><li><a href="#about">About</a></li><li><a href="#colophon">How this site is built</a></li></ul></div>
     <div><h4>Projects</h4><ul><li><a href="#brier">brier</a></li><li><a href="#hnsw-engine">hnsw-engine</a></li><li><a href="#options-pricing-engine">options-pricing-engine</a></li><li><a href="#kestrel">kestrel</a></li><li><a href="#two-stage-recsys">two-stage-recsys</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:kanaman@brandeis.edu">kanaman@brandeis.edu</a></li><li><a href="https://github.com/anamankev">GitHub</a></li><li><a href="https://www.linkedin.com/in/kelvin-anaman">LinkedIn</a></li></ul></div>
-    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">46 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
+    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">49 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
   </div>
 </footer>
 
@@ -1267,7 +1300,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       return '<a class="btn' + (k === 0 ? " primary" : "") + '" href="' + l[1] + '">' + l[0] + "</a>";
     }).join("") + "</div></article>";
   }
-  var engines = null;
+  var engines = null, homeEngines = null;
   var enginesReady = (async function() {
     try {
       var res;
@@ -1277,13 +1310,20 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         res = await WebAssembly.instantiate(await (await fetch("engines.wasm")).arrayBuffer(), {});
       }
       engines = res.instance.exports;
+      try {
+        var second = await WebAssembly.instantiate(res.module, {});
+        homeEngines = second.exports;
+      } catch (e) {
+        homeEngines = null;
+      }
     } catch (e) {
       engines = null;
     }
     window.__engines = engines ? "wasm" : "js";
   })();
-  function u32(n) {
-    return new Uint32Array(engines.memory.buffer, engines.out_u32_ptr(), n);
+  function u32(n, x) {
+    x = x || engines;
+    return new Uint32Array(x.memory.buffer, x.out_u32_ptr(), n);
   }
   function f64(n) {
     return new Float64Array(engines.memory.buffer, engines.out_f64_ptr(), n);
@@ -1327,46 +1367,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     return '<a class="ed-item" href="#' + x.id + '">' + metaRow("Writing", x.date) + "<h3>" + x.title + "</h3><p>" + x.dek + "</p></a>";
   }
   $("#ed").innerHTML = '<div class="ed-col">' + edProject(byId["kestrel"], true) + edPost(postById["killing-an-exchange"]) + '</div><div class="ed-col ed-center">' + edProject(byId["brier"], true, true) + '</div><div class="ed-col">' + edPost(postById["ranker-made-it-worse"]) + edProject(byId["two-stage-recsys"]) + edProject(byId["hnsw-engine"]) + "</div>";
-  var GLYPH = {
-    market: '<svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><rect x="6" y="8" width="16" height="5" rx="1"/><rect x="10" y="16" width="12" height="5" rx="1"/><rect x="14" y="24" width="8" height="5" rx="1"/><rect x="26" y="20" width="10" height="5" rx="1"/><rect x="26" y="28" width="16" height="5" rx="1"/><rect x="26" y="36" width="13" height="5" rx="1"/></svg>',
-    search: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="3.5" fill="currentColor"/><circle cx="36" cy="12" r="3.5" fill="currentColor"/><circle cx="22" cy="24" r="3.5" fill="currentColor"/><circle cx="10" cy="38" r="3.5" fill="currentColor"/><circle cx="38" cy="36" r="3.5" fill="currentColor"/><path d="M10 10L22 24L36 12M22 24L10 38M22 24L38 36"/></svg>',
-    pricing: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" aria-hidden="true"><path d="M5 40C18 39 24 34 30 22S38 8 43 7"/><path d="M5 40H43M5 8V40"/></svg>',
-    ml: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="8" cy="12" r="3.5" fill="currentColor"/><circle cx="8" cy="36" r="3.5" fill="currentColor"/><circle cx="24" cy="8" r="3.5" fill="currentColor"/><circle cx="24" cy="24" r="3.5" fill="currentColor"/><circle cx="24" cy="40" r="3.5" fill="currentColor"/><circle cx="40" cy="24" r="3.5" fill="currentColor"/><path d="M8 12L24 8M8 12L24 24M8 12L24 40M8 36L24 8M8 36L24 24M8 36L24 40M24 8L40 24M24 24L40 24M24 40L40 24"/></svg>',
-    systems: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="38" height="32" rx="4"/><path d="M13 19l6 5-6 5M23 30h11"/></svg>',
-    energy: '<svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M27 3L9 27h12l-3 18 21-26H26z"/></svg>'
-  };
-  var AREAS = [
-    { g: "ml", t: "Machine learning", n: "1 project, 2 papers", d: "Two-tower retrieval with a learned ranker, research on LHC collision data and pyrolysis, and grid-load forecasting at Pulse Energies.", h: "#two-stage-recsys" },
-    { g: "systems", t: "Software engineering", n: "3 projects", d: "A crash-safe exchange in Rust, a native market terminal in SwiftUI, and a compiled vector search engine.", h: "#brier" },
-    { g: "search", t: "Search and retrieval", n: "2 projects", d: "Vector search built from the paper, serving the candidates a recommender then ranks.", h: "#hnsw-engine" },
-    { g: "pricing", t: "Quantitative finance", n: "1 project, 1 internship", d: "Option pricers checked against QuantLib, and FX and reserves modelling on the Bank of Ghana\u2019s GoldBod desk.", h: "#options-pricing-engine" }
-  ];
-  var areasEl = $("#areas");
-  areasEl.innerHTML = AREAS.map(function(a) {
-    return '<a class="area" href="' + a.h + '"><div class="top">' + GLYPH[a.g] + "<div><h3>" + a.t + '</h3><div class="count">' + a.n + "</div></div></div><p>" + a.d + "</p></a>";
-  }).join("");
-  function areaStep() {
-    var c = areasEl.querySelector(".area");
-    return c ? c.getBoundingClientRect().width + 22 : 1;
-  }
-  function areaPos() {
-    var i = Math.round(areasEl.scrollLeft / areaStep()) + 1, max = AREAS.length, vis = Math.max(1, Math.round(areasEl.clientWidth / areaStep()));
-    $("#areas-pos").textContent = String(i).padStart(2, "0") + " / " + String(max).padStart(2, "0");
-    $("#areas-prev").disabled = areasEl.scrollLeft < 4;
-    $("#areas-next").disabled = areasEl.scrollLeft + areasEl.clientWidth >= areasEl.scrollWidth - 4;
-    $(".pager").hidden = vis >= max;
-  }
-  $("#areas-prev").onclick = function() {
-    areasEl.scrollBy({ left: -areaStep(), behavior: "smooth" });
-  };
-  $("#areas-next").onclick = function() {
-    areasEl.scrollBy({ left: areaStep(), behavior: "smooth" });
-  };
-  areasEl.addEventListener("scroll", function() {
-    window.requestAnimationFrame(areaPos);
-  });
-  window.addEventListener("resize", areaPos);
-  setTimeout(areaPos, 0);
   $('[data-projects="all"]').innerHTML = ["brier", "two-stage-recsys", "hnsw-engine", "kestrel", "options-pricing-engine"].map(function(id) {
     return pcard(byId[id]);
   }).join("");
@@ -1410,25 +1410,26 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     }
   }
   var SEED_ASKS = [[60, 25], [60, 15], [61, 40], [63, 30], [65, 50]], SEED_BIDS = [[58, 30], [58, 20], [57, 50], [55, 20], [52, 40]];
-  function wasmBook() {
-    var x = engines;
+  function wasmBook(inst) {
+    var x = inst || engines;
     return {
-      reset: function() {
+      reset: function(sh) {
+        sh = sh || 0;
         x.ob_reset();
         SEED_ASKS.forEach(function(o) {
-          x.ob_add(1, o[0], o[1]);
+          x.ob_add(1, o[0] + sh, o[1]);
         });
         SEED_BIDS.forEach(function(o) {
-          x.ob_add(0, o[0], o[1]);
+          x.ob_add(0, o[0] + sh, o[1]);
         });
       },
       levels: function(ask, max) {
-        var n = x.ob_levels(ask ? 1 : 0, max), b = u32(n * 3), out = [];
+        var n = x.ob_levels(ask ? 1 : 0, max), b = u32(n * 3, x), out = [];
         for (var k = 0; k < n; k++) out.push([b[k * 3], b[k * 3 + 1], b[k * 3 + 2]]);
         return out;
       },
       submit: function(buy, px, q2) {
-        var n = x.ob_submit(buy ? 0 : 1, px, q2), b = u32(n * 3), fills = [];
+        var n = x.ob_submit(buy ? 0 : 1, px, q2), b = u32(n * 3, x), fills = [];
         for (var k = 0; k < n; k++) fills.push({ q: b[k * 3], px: b[k * 3 + 1], id: b[k * 3 + 2] });
         return { fills, restQty: x.ob_rest_qty(), restId: x.ob_rest_id() };
       }
@@ -1450,14 +1451,15 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       });
     }
     return {
-      reset: function() {
+      reset: function(sh) {
+        sh = sh || 0;
         seq = 0;
         sides = { bid: {}, ask: {} };
         SEED_ASKS.forEach(function(o) {
-          add(true, o[0], o[1]);
+          add(true, o[0] + sh, o[1]);
         });
         SEED_BIDS.forEach(function(o) {
-          add(false, o[0], o[1]);
+          add(false, o[0] + sh, o[1]);
         });
       },
       levels: function(ask, max) {
@@ -1657,6 +1659,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         return;
       }
       ws.onopen = function() {
+        if (!ws) return;
         ["level2", "market_trades", "heartbeats"].forEach(function(ch) {
           ws.send(JSON.stringify({ type: "subscribe", product_ids: ["BTC-USD"], channel: ch }));
         });
@@ -1687,6 +1690,8 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     }
     function stop() {
       if (ws) {
+        ws.onopen = null;
+        ws.onmessage = null;
         ws.onclose = null;
         ws.onerror = null;
         try {
@@ -1740,17 +1745,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       var x = a[0] - b[0], y = a[1] - b[1];
       return x * x + y * y;
     }
-    var adj = G.layers.map(function(ly) {
-      var m = {};
-      ly.nodes.forEach(function(n) {
-        m[n] = [];
-      });
-      ly.links.forEach(function(l2) {
-        m[l2[0]].push(l2[1]);
-        m[l2[1]].push(l2[0]);
-      });
-      return m;
-    });
     for (var l = L - 1; l >= 0; l--) {
       var g = el("g", {}, svg);
       el("polygon", { points: [[0, 0], [1, 0], [1, 1], [0, 1]].map(function(p) {
@@ -1769,47 +1763,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     var gr = el("g", {}, svg);
     function render(q2) {
       while (gr.firstChild) gr.removeChild(gr.firstChild);
-      var cur, cnt, ex, route2 = [];
-      if (engines) {
-        var rl = engines.hnsw_search(q2[0], q2[1]), rb = u32(rl * 2);
-        for (var ri = 0; ri < rl; ri++) route2.push([rb[ri * 2], rb[ri * 2 + 1]]);
-        cur = engines.hnsw_found();
-        ex = engines.hnsw_exact();
-        cnt = engines.hnsw_count();
-      } else {
-        var seen = {}, best;
-        cur = G.entry;
-        cnt = 1;
-        route2 = [[L - 1, cur]];
-        best = d2(G.points[cur], q2);
-        seen[cur] = 1;
-        for (var l2 = L - 1; l2 >= 0; l2--) {
-          if (l2 !== L - 1) route2.push([l2, cur]);
-          for (var moved = true; moved; ) {
-            moved = false;
-            var nb = adj[l2][cur], nn = cur, nd = best;
-            nb.forEach(function(n) {
-              if (!seen[n]) {
-                seen[n] = 1;
-                cnt++;
-              }
-              var dd = d2(G.points[n], q2);
-              if (dd < nd) {
-                nd = dd;
-                nn = n;
-              }
-            });
-            if (nn !== cur) {
-              cur = nn;
-              best = nd;
-              route2.push([l2, cur]);
-              moved = true;
-            }
-          }
-        }
-        ex = 0;
-        for (var j = 1; j < 40; j++) if (d2(G.points[j], q2) < d2(G.points[ex], q2)) ex = j;
-      }
+      var res = hnswSearch(q2), cur = res.found, cnt = res.count, ex = res.exact, route2 = res.route;
       var qa = proj(q2, L - 1), qb = proj(q2, 0);
       el("line", { x1: qa[0], y1: qa[1], x2: qb[0], y2: qb[1], stroke: "var(--ink)", "stroke-opacity": 0.25, "stroke-dasharray": "2 4" }, gr);
       for (var k = 0; k < L; k++) {
@@ -1884,27 +1838,13 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       '<div class="out"><div class="k">Call theta, per day</div><div class="v" id="o-th"></div></div>',
       '<div class="parity" id="o-par"></div>'
     ].join("") + "</div></div>";
-    function N(x) {
-      var t = 1 / (1 + 0.2316419 * Math.abs(x)), y = t * (0.31938153 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
-      var p = 1 - Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI) * y;
-      return x >= 0 ? p : 1 - p;
-    }
-    function n(x) {
-      return Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI);
-    }
     function calc() {
       var v = {};
       F.forEach(function(f) {
         v[f[0]] = +$("#in-" + f[0], host).value;
         $("#lbl-" + f[0], host).textContent = v[f[0]] + f[6];
       });
-      var S = v.S, K = v.K, T = v.T / 365, s = v.v / 100, r = v.r / 100, st = s * Math.sqrt(T);
-      var d1 = (Math.log(S / K) + (r + s * s / 2) * T) / st, d2 = d1 - st, dk = K * Math.exp(-r * T);
-      var g;
-      if (engines) {
-        engines.bs(S, K, v.T, v.v, v.r);
-        g = Array.from(f64(6));
-      } else g = [S * N(d1) - dk * N(d2), dk * N(-d2) - S * N(-d1), N(d1), n(d1) / (S * st), S * n(d1) * Math.sqrt(T) / 100, (-S * n(d1) * s / (2 * Math.sqrt(T)) - r * dk * N(d2)) / 365];
+      var S = v.S, K = v.K, dk = K * Math.exp(-v.r / 100 * v.T / 365), g = bsCalc(S, K, v.T, v.v, v.r);
       $("#o-c", host).textContent = g[0].toFixed(4);
       $("#o-p", host).textContent = g[1].toFixed(4);
       $("#o-d", host).textContent = g[2].toFixed(4);
@@ -1918,6 +1858,323 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     });
     calc();
   }
+  function normCdf(x) {
+    var t = 1 / (1 + 0.2316419 * Math.abs(x)), y = t * (0.31938153 + t * (-0.356563782 + t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))));
+    var p = 1 - Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI) * y;
+    return x >= 0 ? p : 1 - p;
+  }
+  function normPdf(x) {
+    return Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI);
+  }
+  function bsCalc(S, K, days, volPct, ratePct) {
+    if (engines) {
+      engines.bs(S, K, days, volPct, ratePct);
+      return Array.from(f64(6));
+    }
+    var T = days / 365, s = volPct / 100, r = ratePct / 100, st = s * Math.sqrt(T);
+    var d1 = (Math.log(S / K) + (r + s * s / 2) * T) / st, d2 = d1 - st, dk = K * Math.exp(-r * T);
+    return [S * normCdf(d1) - dk * normCdf(d2), dk * normCdf(-d2) - S * normCdf(-d1), normCdf(d1), normPdf(d1) / (S * st), S * normPdf(d1) * Math.sqrt(T) / 100, (-S * normPdf(d1) * s / (2 * Math.sqrt(T)) - r * dk * normCdf(d2)) / 365];
+  }
+  var HNSW_ADJ = null;
+  function hnswSearch(q2) {
+    var route2 = [];
+    if (engines) {
+      var rl = engines.hnsw_search(q2[0], q2[1]), rb = u32(rl * 2);
+      for (var i = 0; i < rl; i++) route2.push([rb[i * 2], rb[i * 2 + 1]]);
+      return { route: route2, found: engines.hnsw_found(), exact: engines.hnsw_exact(), count: engines.hnsw_count() };
+    }
+    var G = HNSW_G, L = G.layers.length;
+    function d2(a, b) {
+      var x = a[0] - b[0], y = a[1] - b[1];
+      return x * x + y * y;
+    }
+    if (!HNSW_ADJ) HNSW_ADJ = G.layers.map(function(ly) {
+      var m = {};
+      ly.nodes.forEach(function(n) {
+        m[n] = [];
+      });
+      ly.links.forEach(function(l2) {
+        m[l2[0]].push(l2[1]);
+        m[l2[1]].push(l2[0]);
+      });
+      return m;
+    });
+    var seen = {}, cur = G.entry, cnt = 1, best = d2(G.points[cur], q2);
+    seen[cur] = 1;
+    route2.push([L - 1, cur]);
+    for (var l = L - 1; l >= 0; l--) {
+      if (l !== L - 1) route2.push([l, cur]);
+      for (var moved = true; moved; ) {
+        moved = false;
+        var nn = cur, nd = best;
+        HNSW_ADJ[l][cur].forEach(function(n) {
+          if (!seen[n]) {
+            seen[n] = 1;
+            cnt++;
+          }
+          var dd = d2(G.points[n], q2);
+          if (dd < nd) {
+            nd = dd;
+            nn = n;
+          }
+        });
+        if (nn !== cur) {
+          cur = nn;
+          best = nd;
+          route2.push([l, cur]);
+          moved = true;
+        }
+      }
+    }
+    var ex = 0;
+    for (var j = 1; j < G.points.length; j++) if (d2(G.points[j], q2) < d2(G.points[ex], q2)) ex = j;
+    return { route: route2, found: cur, exact: ex, count: cnt };
+  }
+  function buildInstruments() {
+    var host = $("#instruments");
+    if (!host) return;
+    var NS = "http://www.w3.org/2000/svg", reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function el(n, a, p) {
+      var e = document.createElementNS(NS, n);
+      for (var k in a) e.setAttribute(k, a[k]);
+      if (p) p.appendChild(e);
+      return e;
+    }
+    function clear(g) {
+      while (g.firstChild) g.removeChild(g.firstChild);
+    }
+    function read(id, pairs) {
+      $("#" + id).innerHTML = pairs.map(function(p) {
+        return "<div><dt>" + p[0] + "</dt><dd>" + p[1] + "</dd></div>";
+      }).join("");
+    }
+    function gauss() {
+      var u = 1 - Math.random(), v = Math.random();
+      return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    }
+    function clamp(x, a, b) {
+      return Math.min(b, Math.max(a, x));
+    }
+    var pv = $("#iv-price"), X0 = 14, X1 = 346, Y0 = 12, Y1 = 144, SMIN = 60, SMAX = 140, VMAX = 44, K = 100, VOL = 25, RATE = 4.5, CYCLE = 18e3, TMAX = 120;
+    function px(S2) {
+      return X0 + (S2 - SMIN) / (SMAX - SMIN) * (X1 - X0);
+    }
+    function py(v) {
+      return Y1 - v / VMAX * (Y1 - Y0);
+    }
+    el("line", { x1: X0, y1: Y1, x2: X1, y2: Y1, stroke: "var(--line)" }, pv);
+    el("line", { x1: px(K), y1: Y0, x2: px(K), y2: Y1, stroke: "var(--line)", "stroke-dasharray": "2 4" }, pv);
+    el("text", { x: px(K), y: Y1 + 15, "text-anchor": "middle", "class": "tick" }, pv).textContent = "strike 100";
+    el("text", { x: X1, y: Y1 + 15, "text-anchor": "end", "class": "tick" }, pv).textContent = "stock \u2192";
+    el("text", { x: X0, y: Y1 + 15, "class": "tick" }, pv).textContent = "value \u2191";
+    el("path", { d: "M" + px(SMIN) + " " + py(0) + "L" + px(K) + " " + py(0) + "L" + px(SMAX) + " " + py(SMAX - K), fill: "none", stroke: "var(--ink-3)", "stroke-width": 1.2, "stroke-dasharray": "4 4" }, pv);
+    var curve = el("path", { fill: "none", stroke: "var(--accent)", "stroke-width": 2.2, "stroke-linejoin": "round" }, pv);
+    var guide = el("line", { y1: Y0, y2: Y1, stroke: "var(--accent)", "stroke-opacity": 0.3 }, pv);
+    var dot = el("circle", { r: 4.5, fill: "var(--accent)", stroke: "var(--bg)", "stroke-width": 2 }, pv);
+    var S = 100, Sd = 100, tP = 0, lastP = 0, nextQ = 0, frame = 0;
+    function drawPrice(days) {
+      var d = "";
+      for (var i = 0; i <= 40; i++) {
+        var s = SMIN + i * 2;
+        d += (i ? "L" : "M") + px(s).toFixed(1) + " " + py(bsCalc(s, K, days, VOL, RATE)[0]).toFixed(1);
+      }
+      curve.setAttribute("d", d);
+      var x = px(Sd).toFixed(1);
+      guide.setAttribute("x1", x);
+      guide.setAttribute("x2", x);
+      dot.setAttribute("cx", x);
+      dot.setAttribute("cy", py(bsCalc(Sd, K, days, VOL, RATE)[0]).toFixed(1));
+      if (frame++ % 6 === 0) {
+        var g = bsCalc(S, K, days, VOL, RATE);
+        read("ir-price", [["S", S.toFixed(2)], ["C", g[0].toFixed(2)], ["\u0394", g[2].toFixed(3)], ["\u0393", g[3].toFixed(4)], ["T", Math.ceil(days) + "d"]]);
+      }
+    }
+    function tickPrice(t) {
+      var dt = lastP ? Math.min(t - lastP, 100) : 16;
+      lastP = t;
+      tP += dt;
+      while (tP >= nextQ) {
+        nextQ += 80;
+        var yrs = 80 / CYCLE * TMAX / 365, sig = VOL / 100;
+        S *= Math.exp(-sig * sig / 2 * yrs + sig * Math.sqrt(yrs) * gauss());
+        if (S < 62) S = 124 - S;
+        if (S > 138) S = 276 - S;
+      }
+      Sd += (S - Sd) * 0.22;
+      drawPrice(Math.max(0.5, TMAX * (1 - tP % CYCLE / CYCLE)));
+    }
+    var lv = $("#iv-learn"), G = HNSW_G, lvl = G.points.map(function() {
+      return 0;
+    });
+    function lp(p) {
+      return [16 + p[0] * 328, 10 + p[1] * 146];
+    }
+    G.layers.forEach(function(ly, l) {
+      ly.nodes.forEach(function(n) {
+        lvl[n] = Math.max(lvl[n], l);
+      });
+    });
+    G.layers[0].links.forEach(function(k) {
+      var a = lp(G.points[k[0]]), b = lp(G.points[k[1]]);
+      el("line", { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: "var(--ink-3)", "stroke-opacity": 0.22 }, lv);
+    });
+    G.points.forEach(function(p, i) {
+      var a = lp(p);
+      el("circle", { cx: a[0], cy: a[1], r: 1.9 + lvl[i] * 1.2, fill: lvl[i] ? "var(--ink-2)" : "var(--ink-3)" }, lv);
+    });
+    var trail = el("g", {}, lv), rg = el("g", {}, lv), q2 = [0.687, 0.619], hist = [], lastL = 0;
+    function stepLearn(move) {
+      if (move) {
+        hist.unshift(q2.slice());
+        hist = hist.slice(0, 5);
+        q2 = [clamp(q2[0] + gauss() * 0.15, 0.03, 0.97), clamp(q2[1] + gauss() * 0.15, 0.03, 0.97)];
+      }
+      var r = hnswSearch(q2);
+      clear(trail);
+      clear(rg);
+      hist.forEach(function(h, i2) {
+        var a = lp(h);
+        el("circle", { cx: a[0], cy: a[1], r: 2.6, fill: "var(--accent)", "fill-opacity": (0.4 - i2 * 0.07).toFixed(2) }, trail);
+      });
+      var path = el("path", { d: r.route.map(function(s, i2) {
+        var a = lp(G.points[s[1]]);
+        return (i2 ? "L" : "M") + a[0].toFixed(1) + " " + a[1].toFixed(1);
+      }).join(""), fill: "none", stroke: "var(--accent)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, rg);
+      r.route.forEach(function(s) {
+        var a = lp(G.points[s[1]]);
+        el("circle", { cx: a[0], cy: a[1], r: 2.8, fill: "var(--accent)" }, rg);
+      });
+      var f = lp(G.points[r.found]);
+      el("circle", { cx: f[0], cy: f[1], r: 7.5, fill: "none", stroke: "var(--accent)", "stroke-width": 1.8 }, rg);
+      var c = lp(q2);
+      el("path", { d: "M" + (c[0] - 6) + " " + c[1] + "h12M" + c[0] + " " + (c[1] - 6) + "v12", stroke: "var(--ink)", "stroke-width": 1.6 }, rg);
+      if (!reduce && path.getTotalLength) {
+        var len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        path.style.strokeDashoffset = len;
+        getComputedStyle(path).strokeDashoffset;
+        path.style.transition = "stroke-dashoffset 900ms cubic-bezier(.4,0,.2,1)";
+        path.style.strokeDashoffset = 0;
+      }
+      var hops = 0;
+      for (var i = 1; i < r.route.length; i++) if (r.route[i][0] === r.route[i - 1][0]) hops++;
+      read("ir-learn", [["hops", String(hops)], ["compared", r.count + " of " + G.points.length], ["top item", "#" + r.found + (r.found === r.exact ? " = exact" : " \u2248 exact")]]);
+    }
+    var mb = homeEngines ? wasmBook(homeEngines) : tsBook(), mv = $("#iv-match"), orders = 0, trades = 0, last = 0, since = 0, fair = 59, lastM = 0, gap = 400;
+    mb.reset();
+    function drawBook(hit) {
+      var n = Math.max(2, Math.min(4, Math.floor((mv.clientHeight - 38) / 30))), a = mb.levels(true, n), b = mb.levels(false, n), max = 1;
+      a.concat(b).forEach(function(l) {
+        max = Math.max(max, l[1]);
+      });
+      function row(s, l, h) {
+        return '<div class="r ' + s + (h ? " hit" : "") + '"><span class="bar" style="width:' + (l[1] / max * 100).toFixed(0) + '%"></span><span class="px">' + l[0] + '\xA2</span><span class="q">' + l[1] + "</span></div>";
+      }
+      var html = "";
+      for (var i = n - 1; i >= 0; i--) html += a[i] ? row("ask", a[i], i === 0 && hit === "ask") : '<div class="r"></div>';
+      html += '<div class="mid">' + (a.length && b.length ? a[0][0] - b[0][0] + "\xA2 spread \xB7 market says " + Math.round((a[0][0] + b[0][0]) / 2) + "%" : "&nbsp;") + "</div>";
+      for (var j = 0; j < n; j++) html += b[j] ? row("bid", b[j], j === 0 && hit === "bid") : '<div class="r"></div>';
+      mv.innerHTML = html;
+      read("ir-match", [["orders", orders.toLocaleString("en-US")], ["trades", trades.toLocaleString("en-US")], ["last", last ? last + "\xA2" : "\u2013"]]);
+    }
+    function flow() {
+      var a = mb.levels(true, 1), b = mb.levels(false, 1);
+      if (!a.length || !b.length || since > 600) {
+        mb.reset(clamp(Math.round(fair) - 59, -30, 30));
+        since = 0;
+        drawBook("");
+        return;
+      }
+      var ask = a[0][0], bid = b[0][0], mid = (ask + bid) / 2;
+      fair = clamp(fair + gauss() * 0.6, 22, 78);
+      var buy = Math.random() < clamp(0.5 + (fair - mid) / 16, 0.15, 0.85), q3 = 5 * (1 + Math.floor(Math.random() * 8)), p;
+      if (Math.random() < 0.36) p = buy ? ask : bid;
+      else {
+        var k = Math.floor(-Math.log(1 - Math.random()) * 1.4), better = ask - bid > 1 && Math.random() < 0.3;
+        p = buy ? Math.min(ask - 1, better ? bid + 1 : bid - k) : Math.max(bid + 1, better ? ask - 1 : ask + k);
+      }
+      var res = mb.submit(buy, clamp(p, 1, 99), q3);
+      orders++;
+      since++;
+      res.fills.forEach(function(f) {
+        trades++;
+        last = f.px;
+      });
+      drawBook(res.fills.length ? buy ? "ask" : "bid" : "");
+    }
+    var vis = { price: true, learn: true, match: true }, raf = 0, tmo = 0;
+    function running() {
+      return routeShown === "home" && !document.hidden && (vis.price || vis.learn || vis.match);
+    }
+    function onFrame() {
+      if (raf) cancelAnimationFrame(raf);
+      if (tmo) clearTimeout(tmo);
+      raf = 0;
+      tmo = 0;
+      loop(performance.now());
+    }
+    function loop(t) {
+      if (!running()) {
+        lastP = 0;
+        return;
+      }
+      if (vis.price) tickPrice(t);
+      if (vis.learn && t - lastL > 2600) {
+        lastL = t;
+        stepLearn(true);
+      }
+      if (vis.match && t - lastM > gap) {
+        lastM = t;
+        gap = 250 + Math.random() * 450;
+        flow();
+      }
+      raf = requestAnimationFrame(onFrame);
+      tmo = setTimeout(onFrame, 60);
+    }
+    function kick() {
+      if (!reduce && !raf && !tmo && running()) {
+        raf = requestAnimationFrame(onFrame);
+        tmo = setTimeout(onFrame, 60);
+      }
+    }
+    drawPrice(reduce ? 60 : TMAX);
+    stepLearn(false);
+    drawBook("");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function(es) {
+        es.forEach(function(e) {
+          vis[e.target.getAttribute("data-inst")] = e.isIntersecting;
+        });
+        kick();
+      });
+      $$(".inst", host).forEach(function(n) {
+        io.observe(n);
+      });
+    }
+    document.addEventListener("visibilitychange", kick);
+    window.addEventListener("hashchange", function() {
+      setTimeout(kick, 300);
+    });
+    kick();
+  }
+  $$(".statement a[data-inst]").forEach(function(a) {
+    var p = $('.inst[data-inst="' + a.getAttribute("data-inst") + '"]');
+    function on() {
+      a.classList.add("hot");
+      p.classList.add("hot");
+    }
+    function off() {
+      a.classList.remove("hot");
+      p.classList.remove("hot");
+    }
+    [a, p].forEach(function(n) {
+      n.addEventListener("mouseenter", on);
+      n.addEventListener("mouseleave", off);
+    });
+    a.addEventListener("focus", on);
+    a.addEventListener("blur", off);
+  });
+  enginesReady.then(buildInstruments);
   var PAGES = ["home", "experience", "projects", "writing", "about", "colophon"];
   var TITLES = { home: "Kelvin Anaman", experience: "Experience \xB7 Kelvin Anaman", projects: "Projects \xB7 Kelvin Anaman", writing: "Writing \xB7 Kelvin Anaman", colophon: "How this site is built \xB7 Kelvin Anaman", about: "About \xB7 Kelvin Anaman" };
   var routeShown = null;
