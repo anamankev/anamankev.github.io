@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-goWgAYNoXjUvyhsW7u2wqlvzr5alT6ytvTSSjrYWtoE=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.github.com wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-pLDqLHekZOG+8hnKLbkPVG8Q7tNyWokit4rkqXYpQ7U=' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self' wss://advanced-trade-ws.coinbase.com; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)">
@@ -13,15 +13,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kelvin Anaman">
 <meta property="og:title" content="Kelvin Anaman">
-<meta property="og:description" content="Kelvin Anaman writes software that prices options, learns what you’ll watch next and matches 12.3 million orders a second. Brandeis ’30.">
+<meta property="og:description" content="Kelvin Anaman writes software that prices options, learns what you’ll watch next and handles 12.3 million orders and cancels a second. Brandeis ’30.">
 <meta property="og:url" content="https://anamankev.github.io/">
 <meta property="og:image" content="https://anamankev.github.io/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Kelvin Anaman: I write software that prices options, learns what you’ll watch next and matches 12.3 million orders a second.">
+<meta property="og:image:alt" content="Kelvin Anaman: I write software that prices options, learns what you’ll watch next and handles 12.3 million orders and cancels a second.">
 <meta name="twitter:card" content="summary_large_image">
 <title>Kelvin Anaman</title>
-<meta name="description" content="Kelvin Anaman writes software that prices options, learns what you’ll watch next and matches 12.3 million orders a second. Brandeis ’30.">
+<meta name="description" content="Kelvin Anaman writes software that prices options, learns what you’ll watch next and handles 12.3 million orders and cancels a second. Brandeis ’30.">
 <style>
 @font-face { font-family: 'Instrument Sans'; font-style: normal; font-display: swap; font-weight: 400; src: url(fonts/instrument-sans-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
 @font-face { font-family: 'Instrument Sans'; font-style: normal; font-display: swap; font-weight: 400; src: url(fonts/instrument-sans-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
@@ -476,12 +476,6 @@ svg.thumb .acc { fill: var(--accent); }
 @media (max-width: 860px) { .about-intro { grid-template-columns: minmax(0, 1fr); gap: 24px; } .about-intro .portrait { order: -1; max-width: 160px; justify-self: start; } .loves, .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .loves, .gallery { grid-template-columns: minmax(0, 1fr); } .now { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
 
-/* live line */
-.live { display: flex; align-items: center; gap: 8px; margin: 18px 0 0; font-size: 0.82rem; color: var(--ink-3); min-width: 0; }
-.live i { flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--buy); box-shadow: 0 0 0 3px color-mix(in srgb, var(--buy) 25%, transparent); }
-.live a { color: var(--ink-2); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-.live a:hover { color: var(--accent); }
-.live b { font-family: var(--mono); font-weight: 500; color: var(--ink); }
 
 /* easter eggs */
 .confetti { position: fixed; inset: 0; z-index: 70; pointer-events: none; }
@@ -645,7 +639,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
   <div class="view" id="v-home">
     <div class="wrap">
       <section class="statement">
-        <h1>I’m <img class="face" src="me.jpg" width="56" height="56" alt=""> Kelvin. I write software that <a href="#options-pricing-engine" data-inst="price">prices options</a>,<sup aria-hidden="true">01</sup> <a href="#two-stage-recsys" data-inst="learn">learns what you’ll watch next</a><sup aria-hidden="true">02</sup> and <a href="#brier" data-inst="match">matches 12.3 million orders a second</a>.<sup aria-hidden="true">03</sup></h1>
+        <h1>I’m <img class="face" src="me.jpg" width="56" height="56" alt=""> Kelvin. I write software that <a href="#options-pricing-engine" data-inst="price">prices options</a>,<sup aria-hidden="true">01</sup> <a href="#two-stage-recsys" data-inst="learn">learns what you’ll watch next</a><sup aria-hidden="true">02</sup> and <a href="#brier" data-inst="match">handles 12.3 million orders and cancels a second</a>.<sup aria-hidden="true">03</sup></h1>
       </section>
       <section class="instruments" id="instruments" aria-label="Three of my engines, running in this page">
         <article class="inst" data-inst="price">
@@ -664,7 +658,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
           <header><span class="ix">03</span><h2>Match</h2><a class="src" href="#brier">brier →</a></header>
           <div class="viz ladder-mini" id="iv-match" role="img" aria-label="A prediction-market order book, with orders arriving and trading"></div>
           <dl class="read" id="ir-match"></dl>
-          <p class="proof"><b>0 of 6,058,014</b> acknowledged orders lost across 1,000 crashes</p>
+          <p class="proof"><b>0 of 6,058,014</b> acknowledged commands lost across 1,000 crashes</p>
         </article>
       </section>
       <p class="inst-note"><i></i>Running now: my Rust engines, compiled to WebAssembly. The stock, the tastes and the orders are simulated.</p>
@@ -689,7 +683,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
             <a class="icon-btn" href="https://github.com/anamankev" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.34c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
             <a class="icon-btn" href="https://www.linkedin.com/in/kelvin-anaman" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
           </div>
-          <p class="live" id="live" hidden><i></i><span id="live-text"></span></p>
         </div>
         <figure class="portrait"><img src="me.jpg" width="336" height="336" alt="Kelvin Anaman"></figure>
       </section>
@@ -825,7 +818,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
           <div>
             <p class="about-lead">I grew up in Ghana and now live in Boston, where I study quantitative economics, mathematics and computer science at Brandeis as a Wien Scholar.</p>
             <p>I learn a system by building it myself. I wrote a vector index from the HNSW paper and a matching engine from an empty file, then tested each one against the tools professionals use. Now I’m building <a href="#kestrel" style="color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px">Kestrel</a>, a market terminal for students, and running <a href="https://pulseenergies.com" style="color:var(--ink);text-decoration-color:var(--accent);text-underline-offset:3px">Pulse Energies</a>, the grid-forecasting company I founded.</p>
-            <p>A fun fact: some of my favourite work is with other people’s startups. I build alongside founders and advise them where I can, so if you’re starting something, I’d like to hear about it.</p>
+            <p>I also work with early-stage founders, building alongside them and advising on product and engineering.</p>
             <div class="route-line" aria-label="From Ghana to Boston"><span class="flag" aria-hidden="true"><i></i><i></i><i></i><b>★</b></span><span>Ghana</span><span class="dash"></span><span>Boston</span></div>
           </div>
           <figure class="portrait"><img src="me.jpg" width="336" height="336" alt="Kelvin Anaman"></figure>
@@ -853,18 +846,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
         </div>
       </section>
 
-      <section class="section" style="padding-top:0">
-        <p class="kicker">Off the clock</p>
-        <h2 style="margin-bottom:18px">A few things I love</h2>
-        <div class="loves">
-          <div class="love"><div class="k">Sports</div><div class="v">Big sports fan</div></div>
-          <div class="love"><div class="k">Music</div><div class="v">Afrobeat and gospel</div></div>
-          <div class="love"><div class="k">Food</div><div class="v">Ghana jollof</div><p>Arguably the best jollof rice, and I will argue it.</p></div>
-          <div class="love"><div class="k">Screen</div><div class="v">Movies over books</div><p>Given the choice, a film wins.</p></div>
-          <div class="love"><div class="k">Games</div><div class="v">Chess and poker</div><p>One game of perfect information, one of hidden information.</p></div>
-          <div class="love"><div class="k">Travel</div><div class="v">Qatar, the UK, 10 US states</div><p>Visited for fun, and the list is growing.</p></div>
-        </div>
-      </section>
 
       <section class="section" style="padding-top:0" id="gallery-sec" hidden>
         <p class="kicker">Photos</p>
@@ -887,18 +868,17 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       <div class="page-head">
         <p class="kicker">Colophon</p>
         <h1>How this site is built</h1>
-        <p>One hand-written file of HTML, CSS and JavaScript. No framework, no bundler, no trackers.</p>
+        <p>Hand-written HTML, CSS and TypeScript, with Rust compiled to WebAssembly. No framework and no trackers.</p>
       </div>
       <section class="section colo">
         <dl>
           <div><dt>Languages</dt><dd>TypeScript for the page logic, type-checked on every push. Rust compiled to WebAssembly for the three demo engines: the order book, the Black-Scholes pricer and the HNSW search. Python for the build, the browser tests and the charts. HTML and CSS for everything you see.</dd></div>
           <div><dt>Weight</dt><dd><span data-weight>42 KB</span> of page and <span data-wasm-weight>9 KB</span> of WebAssembly, gzipped, before images. The build measures both on every change.</dd></div>
           <div><dt>Routing</dt><dd>Every page, case study and post lives in one document and is chosen by the URL hash, so links to any page work and the back button behaves. Page changes use the View Transitions API where the browser has it, and skip it for anyone who prefers reduced motion.</dd></div>
-          <div><dt>Command line</dt><dd>Modelled on Kestrel, my terminal. <kbd>⌘K</kbd> or <kbd>/</kbd> opens it; commands match by code, then by prefix, then by subsequence. It is an ARIA listbox, so it works from the keyboard and with a screen reader. A few commands are hidden: try <code>HELP</code>.</dd></div>
-          <div><dt>Demos</dt><dd>The order book, the pricer and the HNSW search run in Rust compiled to WebAssembly, with Rust unit tests for the matching order, the option values and the search result. Each keeps a TypeScript version as a fallback for browsers without WebAssembly. The live order book streams Coinbase’s public feed.</dd></div>
-          <div><dt>Live data</dt><dd>The “latest commit” line on the home page calls the public GitHub API, caches the answer for ten minutes in session storage, and disappears quietly if GitHub doesn’t answer.</dd></div>
-          <div><dt>Privacy</dt><dd>No cookies and no analytics. Local storage holds only your theme and which secrets you’ve found. Fonts load from Google Fonts.</dd></div>
-          <div><dt>Type and color</dt><dd>Plus Jakarta Sans and IBM Plex Mono. Graphite and cyan, the same palette as Kestrel, in light and dark.</dd></div>
+          <div><dt>Command line</dt><dd>Modelled on Kestrel, my terminal. <kbd>⌘K</kbd> or <kbd>/</kbd> opens it; commands match by code, then by prefix, then by subsequence. It is an ARIA listbox, so it works from the keyboard and with a screen reader. Type <code>?</code> to list every command.</dd></div>
+          <div><dt>Demos</dt><dd>The order book, the pricer and the HNSW search run in Rust compiled to WebAssembly, on the home page and on each project page, with Rust unit tests for the matching order, the option values and the search result. Each keeps a TypeScript version as a fallback for browsers without WebAssembly. The live order book streams Coinbase’s public feed.</dd></div>
+          <div><dt>Privacy</dt><dd>No cookies, no analytics and no third-party requests: the code, fonts and images are all served from this site. Only the Kestrel page connects elsewhere, to Coinbase’s public market data, for its live order book. Local storage holds only your theme.</dd></div>
+          <div><dt>Type and color</dt><dd>Instrument Sans and IBM Plex Mono, both under the SIL Open Font License and served from this site. Warm paper and deep teal, in light and dark.</dd></div>
         </dl>
       </section>
     </div>
@@ -917,7 +897,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     <div><h4>Pages</h4><ul><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#writing">Writing</a></li><li><a href="#about">About</a></li><li><a href="#colophon">How this site is built</a></li></ul></div>
     <div><h4>Projects</h4><ul><li><a href="#brier">brier</a></li><li><a href="#hnsw-engine">hnsw-engine</a></li><li><a href="#options-pricing-engine">options-pricing-engine</a></li><li><a href="#kestrel">kestrel</a></li><li><a href="#two-stage-recsys">two-stage-recsys</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:kanaman@brandeis.edu">kanaman@brandeis.edu</a></li><li><a href="https://github.com/anamankev">GitHub</a></li><li><a href="https://www.linkedin.com/in/kelvin-anaman">LinkedIn</a></li></ul></div>
-    <div class="base"><span>© 2026 Kelvin Anaman · <span id="clock" hidden></span></span><span>No frameworks, no trackers: <span id="weight">49 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
+    <div class="base"><span>© 2026 Kelvin Anaman</span><span>No frameworks, no trackers: <span id="weight">48 KB</span> of page and <span id="wasm-weight">12 KB</span> of WebAssembly, gzipped, before images.</span></div>
   </div>
 </footer>
 
@@ -1029,7 +1009,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       cmd: "BRIER",
       name: "brier",
       demo: "Order book",
-      card: 'A prediction-market exchange in Rust, open to the public with play money. It matches <span class="num">12.3M orders a second</span> on one core and was killed 1,000 times under load without losing an acknowledged order.',
+      card: 'A prediction-market exchange in Rust, open to the public with play money. It handles <span class="num">12.3M orders and cancels a second</span> on one core and was killed 1,000 times under load without losing an acknowledged order.',
       img: '<img src="img/brier-live.jpg" alt="Brier\u2019s live home page: a featured Juventus vs Venezia market with Yes and No prices, a probability chart, and markets closing soon" style="object-position:top left">',
       cls: "",
       tags: ["Rust", "Tokio", "PostgreSQL"],
@@ -1038,7 +1018,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       problem: "A prediction market looks simple: yes/no contracts that pay 100 if something happens and 0 if it doesn\u2019t, so the price reads as a probability. Underneath, an exchange has to match orders fairly, never lose one it has accepted, and settle from evidence anyone can check. I built all three, from the matching engine to settlement, and opened it to the public with play money.",
       how: ["A deterministic matching engine in Rust with price-time priority. Replaying the command log reproduces every state hash.", "A double-entry ledger with pre-trade collateral checks. After every event it checks that credits issued equal balances plus escrow.", "A crash-safe journal: no order is acknowledged before it is on disk, with one flush per batch of orders.", "About 100 open events that settle from public data (NWS, USGS, BLS, FRED, NOAA, league results), with the evidence hashed into the journal.", "A market maker that trades only through the public API, and surveillance for wash trading, spoofing and insider-like trading."],
       lesson: "The surveillance study was pre-registered: two detectors passed and two did not, and the write-up says which.",
-      numbers: [["12.3M / s", "orders matched on one core"], ["334 ns", "p99 matching latency"], ["9.14 ms", "p99 order to acknowledgment, through the gateway"], ["0 of 6,058,014", "acknowledged commands lost across 1,000 crashes under load"], ["10M", "random commands with no divergence from an independent Python engine"]]
+      numbers: [["12.3M / s", "orders and cancels on one core, median of five runs"], ["334 ns", "p99 matching latency"], ["9.14 ms", "p99 order to acknowledgment, through the gateway"], ["0 of 6,058,014", "acknowledged commands lost across 1,000 crashes under load"], ["10M", "random commands with no divergence from an independent Python engine"]]
     },
     {
       id: "hnsw-engine",
@@ -1087,9 +1067,9 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       media: '<video src="img/kestrel-demo.mp4" poster="img/kestrel-demo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Kestrel demo: commands typed into the terminal, live crypto depth and linked panels"></video>',
       links: [["Code", "https://github.com/anamankev/kestrel"], ["Performance", "https://github.com/anamankev/kestrel/blob/main/docs/PERFORMANCE.md"], ["Security review", "https://github.com/anamankev/kestrel/blob/main/SECURITY.md"]],
       problem: "Professional terminals are built around a command line: type a ticker and a function, press GO. I wanted to build one natively for iPad and Mac, fast enough to stream live order books, using only free public data and no third-party packages.",
-      how: ["28 functions on one command line, such as <code>AAPL GP</code>, <code>BTC DEPTH</code> and <code>WEI</code>.", "Live Coinbase depth and trades; Deribit options with Black-76 greeks and a strategy builder.", "Backtests that charge costs, fill at the next open and pay idle cash the T-bill rate.", "Paper trading with market, limit, stop and stop-limit orders and Reg T short margin."],
+      how: ["35 functions on one command line, such as <code>AAPL GP</code>, <code>BTC DEPTH</code> and <code>WEI</code>.", "Live Coinbase depth and trades; Deribit options with Black-76 greeks and a strategy builder.", "Backtests that charge costs, fill at the next open and pay idle cash the T-bill rate.", "Paper trading with market, limit, stop and stop-limit orders and Reg T short margin."],
       lesson: "Every speed-up started from a profile, and the before and after numbers are written down: the depth ladder went from 826 \xB5s to 27 \xB5s, and decoding a 1,000-contract option chain from 44 ms to 2.9 ms.",
-      numbers: [["10 ms", "median feed latency, exchange to screen"], ["190 \xB5s", "main-thread work per 100 ms of ticks"], ["31\xD7", "faster depth ladder after profiling"], ["28", "functions on one command line"]]
+      numbers: [["10 ms", "median feed latency, exchange to screen"], ["190 \xB5s", "main-thread work per 100 ms of ticks"], ["31\xD7", "faster depth ladder after profiling"], ["35", "functions on one command line"]]
     },
     {
       id: "two-stage-recsys",
@@ -1105,7 +1085,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       problem: "Large recommenders work in two stages: a cheap model narrows a huge catalog to a few hundred candidates, and an expensive one orders them. I built both stages and evaluated them without shortcuts: full-catalog ranking, a leakage-tested temporal split and bootstrap confidence intervals.",
       how: ["A PyTorch two-tower model trained with log-Q corrected in-batch softmax.", "200 candidates per user retrieved through hnsw-engine: 98.4% overlap with exact search at 0.094 ms per user.", "A LightGBM LambdaRank reranker with time-aware features.", "A FastAPI service with a per-stage latency breakdown."],
       lesson: "The first ranker scored below plain retrieval. Diagnosing it on validation data only led to recency features worth +0.0287 NDCG@10.",
-      numbers: [["0.0906", "NDCG@10, against 0.0445 for tuned implicit ALS"], ["+0.0461", "paired improvement, 95% CI [0.0407, 0.0513]"], ["0.1047", "NDCG@10 on MovieLens-10M with every setting unchanged"], ["0.56 ms", "per request, end to end"]]
+      numbers: [["0.0906", "NDCG@10, against 0.0445 for tuned implicit ALS"], ["+0.0461", "paired improvement, 95% CI [0.0407, 0.0513]"], ["0.1047", "NDCG@10 on MovieLens-10M with every setting unchanged"], ["0.56 ms", "mean per request, server-side"]]
     }
   ];
   var HNSW_G = {
@@ -2372,22 +2352,7 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
       termMode();
     } }
   ]);
-  function eggsFound() {
-    try {
-      return JSON.parse(localStorage.getItem("eggs") || "[]").length;
-    } catch (e) {
-      return 0;
-    }
-  }
   function egg(name) {
-    try {
-      var a = JSON.parse(localStorage.getItem("eggs") || "[]");
-      if (a.indexOf(name) < 0) {
-        a.push(name);
-        localStorage.setItem("eggs", JSON.stringify(a));
-      }
-    } catch (e) {
-    }
   }
   function confetti() {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -2462,72 +2427,12 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     }).join("");
     $("#gallery-sec").hidden = false;
   }
-  (function clock() {
-    var el = $("#clock");
-    if (!window.Intl) return;
-    function tick() {
-      try {
-        el.textContent = "It\u2019s " + new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" }).format(/* @__PURE__ */ new Date()) + " in Boston";
-        el.hidden = false;
-      } catch (e) {
-      }
-    }
-    tick();
-    setInterval(tick, 3e4);
-  })();
   $$("[data-weight]").forEach(function(n) {
     n.textContent = $("#weight").textContent;
   });
   $$("[data-wasm-weight]").forEach(function(n) {
     n.textContent = $("#wasm-weight").textContent;
   });
-  (function live() {
-    var el = $("#live"), txt = $("#live-text");
-    function ago(d) {
-      var s = (Date.now() - new Date(d).getTime()) / 1e3, u = [[86400, "day"], [3600, "hour"], [60, "minute"]];
-      for (var i = 0; i < u.length; i++) {
-        var n = Math.floor(s / u[i][0]);
-        if (n >= 1) return n + " " + u[i][1] + (n > 1 ? "s" : "") + " ago";
-      }
-      return "just now";
-    }
-    function show(c) {
-      txt.innerHTML = 'Latest commit <a href="' + esc(c.url) + '" title="' + esc(c.msg) + '"><b>' + esc(c.repo) + "</b> \xB7 " + esc(c.msg) + '</a><span style="flex:none">\xB7 ' + ago(c.date) + "</span>";
-      txt.style.display = "contents";
-      el.hidden = false;
-    }
-    try {
-      var cached = JSON.parse(sessionStorage.getItem("live") || "null");
-      if (cached && Date.now() - cached.t < 6e5) {
-        show(cached.c);
-        return;
-      }
-    } catch (e) {
-    }
-    if (!window.fetch) return;
-    fetch("https://api.github.com/users/anamankev/events/public?per_page=30").then(function(r) {
-      if (!r.ok) throw 0;
-      return r.json();
-    }).then(function(ev) {
-      var push = ev.filter(function(e) {
-        return e.type === "PushEvent" && e.repo.name !== "anamankev/anamankev.github.io";
-      })[0];
-      if (!push) throw 0;
-      return fetch("https://api.github.com/repos/" + push.repo.name + "/commits?per_page=1").then(function(r) {
-        if (!r.ok) throw 0;
-        return r.json();
-      }).then(function(cs) {
-        var c = cs[0];
-        var o = { repo: push.repo.name.split("/")[1], msg: c.commit.message.split("\n")[0].slice(0, 90), date: c.commit.author.date, url: c.html_url };
-        try {
-          sessionStorage.setItem("live", JSON.stringify({ t: Date.now(), c: o }));
-        } catch (e) {
-        }
-        show(o);
-      });
-    }).catch(function() {
-    });
-  })();
   var pal = $("#pal"), q = $("#pal-q"), list = $("#pal-list"), sel = 0, shown = [], lastFocus = null;
   function score(cmd, s) {
     if (!s) return 1;
@@ -2557,7 +2462,6 @@ footer .base { grid-column: 1 / -1; display: flex; justify-content: space-betwee
     list.innerHTML = shown.length ? shown.map(function(c, i) {
       return '<li role="option" id="opt-' + i + '" aria-selected="' + (i === sel) + '" data-i="' + i + '"><code>' + c.c + '</code><span class="d">' + c.d + '</span><span class="g">' + c.g + "</span></li>";
     }).join("") : '<li class="empty" aria-disabled="true">No command matches \u201C' + esc(q.value) + "\u201D. Try brier, mail or theme.</li>";
-    if (s === "?") list.insertAdjacentHTML("afterbegin", '<li class="empty" aria-disabled="true">Secrets found: ' + eggsFound() + " of 6. Konami code works too.</li>");
     q.setAttribute("aria-activedescendant", shown.length ? "opt-" + sel : "");
     var cur = $("#opt-" + sel);
     if (cur) cur.scrollIntoView({ block: "nearest" });
