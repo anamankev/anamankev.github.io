@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-G+UQVGo1XmGYNOHzCh37Ar/EuvkdSv64VbZnExs57uY='; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Not found · Kelvin Anaman</title>
@@ -17,6 +17,8 @@ h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1.05; letter-spacing: -
 p { color: var(--ink-2); font-size: 1.1rem; line-height: 1.6; margin: 0 0 28px; }
 a { display: inline-block; padding: 11px 20px; border-radius: 10px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600; }
 </style>
+<!-- Links written as paths (/experience) open the page they name: the site routes by #hash. -->
+<script>(function () { var p = location.pathname.replace(/^\/+|\/+$/g, "").replace(/\.html$/, "").toLowerCase(); if (/^[a-z0-9-]{1,40}$/.test(p)) location.replace("/#" + p); })();</script>
 </head>
 <body>
 <main>
